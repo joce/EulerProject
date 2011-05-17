@@ -7,14 +7,15 @@ using System.Diagnostics;
 
 namespace EulerProject
 {
-    public class Problem2
+    public static class Problem2
     {
-        /// The results I got are of the following order of magnitude:
-        /// 
-        /// Problem 2, Solution 1: Total = 4613732 in 27253 ticks
-        /// Problem 2, Solution 2: Total = 4613732 in 4082 ticks
-        /// Problem 2, Solution 3: Total = 4613732 in 29251 ticks
-        /// Problem 2, Solution 4: Total = 4613732 in 1 ticks
+        // The results I got are of the following order of magnitude:
+        // 
+        // Problem 2, Solution 1: Total = 4613732 in 27253 ticks
+        // Problem 2, Solution 2: Total = 4613732 in 4082 ticks
+        // Problem 2, Solution 3: Total = 4613732 in 29251 ticks
+        // Problem 2, Solution 4: Total = 4613732 in 1 ticks
+        // Problem 2, Solution 5: Total = 4613732 in 9393 ticks
 
         static Stopwatch _timer = new Stopwatch();
 
@@ -154,6 +155,50 @@ namespace EulerProject
             }
             _timer.Stop();
             Trace.WriteLine(string.Format("Problem 2, Solution 4: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
+        }
+
+
+        //////////////////////////////////////////////////////
+
+
+        public static IEnumerable<T> Generate<T>(this T first, Func<T, T> generator)
+        {
+            T current = first;
+            for (;;)
+            {
+                yield return current;
+                current = generator(current);
+            }
+        }
+        
+        public static void Solution5()
+        {
+            _timer.Restart();
+
+            // Results in ~12000 ticks.
+            //int total = Tuple.Create(0, 1)
+            //                 .Generate(pair => Tuple.Create(pair.Item2, pair.Item1 + pair.Item2))
+            //                 .TakeWhile(pair => pair.Item2 < 4000000)
+            //                 .Where(pair => pair.Item2 % 2 == 0)
+            //                 .Sum(pair => pair.Item2);
+
+            // Results in ~10200 ticks.
+            //int total = Tuple.Create(0, 1)
+            //                 .Generate(pair => Tuple.Create(pair.Item2, pair.Item1 + pair.Item2))
+            //                 .Where(pair => pair.Item2 % 2 == 0)
+            //                 .TakeWhile(pair => pair.Item2 < 4000000)
+            //                 .Sum(pair => pair.Item2);
+
+            // Results in ~9500 ticks.
+            int total = Tuple.Create(0, 1)
+                             .Generate(pair => Tuple.Create(pair.Item2, pair.Item1 + pair.Item2))
+                             .Select(pair => pair.Item2)
+                             .Where(i => i % 2 == 0)
+                             .TakeWhile(i => i < 4000000)
+                             .Sum();
+
+            _timer.Stop();
+            Trace.WriteLine(string.Format("Problem 2, Solution 5: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
         }
     }
 }
