@@ -10,7 +10,7 @@ namespace EulerProject
         static void Main(string[] args)
         {
 
-            int problem = 2;
+            int problem = 3;
             switch (problem)
             {
                 case 1: {
@@ -29,7 +29,10 @@ namespace EulerProject
 
                 case 3:
                 {
-
+                    Problem3.Solution1();
+                    Problem3.Solution2();
+                    Problem3.Solution3();
+                    Problem3.Solution4();
                 } break;
 
                 default: break;
