@@ -1,10 +1,11 @@
-﻿namespace EulerProject
+﻿using System.Diagnostics;
+namespace EulerProject
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int problem = 3;
+            int problem = 4;
             switch (problem)
             {
                 case 1: {
@@ -28,6 +29,13 @@
                     Problem3.Solution2();
                     Problem3.Solution3();
                     Problem3.Solution4();
+                } break;
+
+                case 4:
+                {
+                    Problem4.Solution1();
+                    Problem4.Solution2();
+                    Problem4.Solution3();
                 } break;
 
                 default: break;
