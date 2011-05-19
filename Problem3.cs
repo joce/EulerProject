@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace EulerProject
 {
-    class Problem3
+    public static class Problem3
     {
         // The results I got are of the following order of magnitude:
         // 
