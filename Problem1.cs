@@ -6,14 +6,14 @@ using System.Diagnostics;
 
 namespace EulerProject
 {
-    public class Problem1
+    public static class Problem1
     {
-        /// The results I got are of the following order of magnitude:
-        /// 
-        /// Problem 1, Solution 1: Total = 233168 in 370 ticks
-        /// Problem 1, Solution 2: Total = 233168 in 10205 ticks
-        /// Problem 1, Solution 3: Total = 233168 in 18398 ticks
-        /// Problem 1, Solution 4: Total = 233168 in 5 ticks
+        // The results I got are of the following order of magnitude:
+        // 
+        // Problem 1, Solution 1: Total = 233168 in 370 ticks
+        // Problem 1, Solution 2: Total = 233168 in 10205 ticks
+        // Problem 1, Solution 3: Total = 233168 in 18398 ticks
+        // Problem 1, Solution 4: Total = 233168 in 5 ticks
 
         static Stopwatch _timer = new Stopwatch();
 
