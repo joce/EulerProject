@@ -1,11 +1,10 @@
-﻿using System.Diagnostics;
-namespace EulerProject
+﻿namespace EulerProject
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            int problem = 4;
+            int problem = 2;
             switch (problem)
             {
                 case 1: {

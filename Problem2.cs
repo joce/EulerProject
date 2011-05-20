@@ -36,7 +36,7 @@ namespace EulerProject
                 return true;
             }
 
-            public int Prev { get; set; }
+            int Prev { get; set; }
             public int Current { get; private set; }
 
             public void Reset() 
@@ -124,7 +124,7 @@ namespace EulerProject
             _timer.Restart();
             var fib = MemoizeY<int, int>(f => n => n > 1 ? f(n - 1) + f(n - 2) : 1);
             int total = Enumerable.Range(0, Int32.MaxValue)
-                                  .Select(n => fib(n))
+                                  .Select(fib)
                                   .Where(n => n % 2 == 0)
                                   .TakeWhile(n => n < 4000000)
                                   .Sum();

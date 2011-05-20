@@ -50,7 +50,7 @@ namespace EulerProject
         public static void Solution3()
         {
             _timer.Restart();
-            HashSet<int> porcessedVals = new HashSet<int>();
+            var porcessedVals = new HashSet<int>();
             int total = 0;
             for (int i = 3; i < 1000; i+= 3)
             {
