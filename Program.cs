@@ -5,7 +5,7 @@ namespace EulerProject
     {
         static void Main(string[] args)
         {
-            int problem = 4;
+            int problem = 5;
             switch (problem)
             {
                 case 1: {
@@ -36,6 +36,13 @@ namespace EulerProject
                     Problem4.Solution1();
                     Problem4.Solution2();
                     Problem4.Solution3();
+                } break;
+
+                case 5:
+                {
+                    Problem5.Solution1();
+                    Problem5.Solution2();
+                    Problem5.Solution3();
                 } break;
 
                 default: break;
