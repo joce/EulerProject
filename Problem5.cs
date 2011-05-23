@@ -13,6 +13,8 @@ namespace EulerProject
         // Problem 5, Solution 1: Value = 232792560 in 32855954 ticks
         // Problem 5, Solution 2: Value = 232792560 in 518492188 ticks
         // Problem 5, Solution 3: Total = 232792560 in 3275 ticks
+        // Problem 5, Solution 4: Total = 232792560 in 11 ticks
+
         static Stopwatch _timer = new Stopwatch();
 
         public static void Solution1()
@@ -131,6 +133,35 @@ namespace EulerProject
             }
             _timer.Stop();
             Trace.WriteLine(string.Format("Problem 5, Solution 3: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
+        }
+
+
+        //////////////////////////////////////////////////////
+
+
+        // Devin's O(n^2) solution.
+        public static void Solution4()
+        {
+            int total = 1;
+
+            _timer.Restart();
+            int[] factors = new int[21];
+            for (int i = 2; i <= 20; ++i)
+            {
+                int value = i;
+                int j = 0;
+                for (j = 2; j < i; ++j)
+                {
+                    if (value % factors[j] == 0)
+                    {
+                        value /= factors[j];
+                    }
+                }
+                factors[j] = value;
+                total *= value;
+            }
+            _timer.Stop();
+            Trace.WriteLine(string.Format("Problem 5, Solution 4: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
         }
     }
 }
