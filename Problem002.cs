@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace EulerProject
 {
-    public static class Problem2
+    public static class Problem002
     {
         // The results I got are of the following order of magnitude:
         // 
