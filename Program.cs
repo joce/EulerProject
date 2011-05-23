@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-namespace EulerProject
+﻿namespace EulerProject
 {
     class Program
     {
