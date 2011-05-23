@@ -47,6 +47,14 @@ namespace EulerProject
                     Problem5.Solution4();
                 } break;
 
+                case 6:
+                {
+                    Problem6.Solution1();
+                    Problem6.Solution2();
+                    Problem6.Solution3();
+                    Problem6.Solution4();
+                } break;
+
                 default: break;
             }
         }
