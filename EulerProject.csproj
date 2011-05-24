@@ -69,6 +69,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,15 +77,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Problem1.cs" />
-    <Compile Include="Problem2.cs" />
-    <Compile Include="Problem3.cs" />
-    <Compile Include="Problem4.cs" />
+    <Compile Include="Problem001.cs" />
+    <Compile Include="Problem002.cs" />
+    <Compile Include="Problem003.cs" />
+    <Compile Include="Problem004.cs" />
+    <Compile Include="Problem005.cs" />
+    <Compile Include="Problem006.cs" />
+    <Compile Include="Problem008.cs" />
+    <Compile Include="Problem009.cs" />
+    <Compile Include="Problem010.cs" />
+    <Compile Include="Problem016.cs" />
+    <Compile Include="Problem020.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Compile Include="Problem007.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

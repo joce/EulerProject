@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using System.Linq;
 
 namespace EulerProject
 {
-    public static class Problem4
+    public static class Problem004
     {
         // The results I got are of the following order of magnitude:
         // 
