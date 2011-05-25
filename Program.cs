@@ -81,6 +81,7 @@
                 case 13:
                 {
                     Problem013.Solution1();
+                    Problem013.Solution2();
                 } break;
 
                 case 16:
