@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            int problem = 13;
+            int problem = 11;
             switch (problem)
             {
                 case 1: {
@@ -76,6 +76,11 @@
                     Problem010.Solution1();
                     Problem010.Solution2();
                     Problem010.Solution3();
+                } break;
+
+                case 11:
+                {
+                    Problem011.Solution1();
                 } break;
 
                 case 13:
