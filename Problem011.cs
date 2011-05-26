@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 
 namespace EulerProject
 {
     public static class Problem011
     {
+        // The results I got are of the following order of magnitude:
+        // 
+        // Problem 11, Solution 1: Value = 70600674 in 219 ticks
+        // Problem 11, Solution 2: Value = 70600674 in 177 ticks
+
         static Stopwatch _timer = new Stopwatch();
 
         static int [,] _grid = new int [,] {
@@ -33,12 +34,292 @@ namespace EulerProject
             { 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52,  1, 89, 19, 67, 48},
         };
 
+        // Ugly, copy-pasted solution
         public static void Solution1()
         {
             _timer.Restart();
             long result = 0;
+
+            int width = _grid.GetLength(1);
+            int height = _grid.GetLength(0);
+
+            int maxRes = 0;
+            int maxPosX = 0;
+            int maxPosY = 0;
+            int maxDirection = 0;
+
+            // Horizontal
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width - 4; x++)
+                {
+                    int curRes = 0;
+                    for (int i = 0; i < 4; i++)
+                    {
+                        int val = _grid[x+i,y];
+                        if (val == 0)
+                        {
+                            curRes = -1;
+                            break;
+                        }
+                        curRes += val;
+                    }
+                    if (curRes > maxRes)
+                    {
+                        maxRes = curRes;
+                        maxPosX = x;
+                        maxPosY = y;
+                        maxDirection = 0;
+                    }
+                }
+            }
+
+            // Vertical
+            for (int y = 0; y < height - 4; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int curRes = 0;
+                    for (int i = 0; i < 4; i++)
+                    {
+                        int val = _grid[x, y+i];
+                        if (val == 0)
+                        {
+                            curRes = -1;
+                            break;
+                        }
+                        curRes += val;
+                    }
+                    if (curRes > maxRes)
+                    {
+                        maxRes = curRes;
+                        maxPosX = x;
+                        maxPosY = y;
+                        maxDirection = 1;
+                    }
+                }
+            }
+
+            // Diagonal \
+            for (int y = 0; y < height - 4; y++)
+            {
+                for (int x = 0; x < width - 4; x++)
+                {
+                    int curRes = 0;
+                    for (int i = 0; i < 4; i++)
+                    {
+                        int val = _grid[x+i, y+i];
+                        if (val == 0)
+                        {
+                            curRes = -1;
+                            break;
+                        }
+                        curRes += val;
+                    }
+                    if (curRes > maxRes)
+                    {
+                        maxRes = curRes;
+                        maxPosX = x;
+                        maxPosY = y;
+                        maxDirection = 2;
+                    }
+                }
+            }
+
+            // Diagonal /
+            for (int y = 0; y < height -4; y++)
+            {
+                for (int x = 3; x < width; x++)
+                {
+                    int curRes = 0;
+                    for (int i = 0; i < 4; i++)
+                    {
+                        int val = _grid[x-i, y+i];
+                        if (val == 0)
+                        {
+                            curRes = -1;
+                            break;
+                        }
+                        curRes += val;
+                    }
+                    if (curRes > maxRes)
+                    {
+                        maxRes = curRes;
+                        maxPosX = x;
+                        maxPosY = y;
+                        maxDirection = 3;
+                    }
+                }
+            }
+
+            switch (maxDirection)
+            {
+                case 0:
+                    result = _grid[maxPosX, maxPosY] * _grid[maxPosX+1, maxPosY] * _grid[maxPosX+2, maxPosY] * _grid[maxPosX+3, maxPosY];
+                break;
+
+                case 1:
+                    result = _grid[maxPosX, maxPosY] * _grid[maxPosX, maxPosY+1] * _grid[maxPosX, maxPosY+2] * _grid[maxPosX, maxPosY+3];
+                break;
+
+                case 2:
+                    result = _grid[maxPosX, maxPosY] * _grid[maxPosX+1, maxPosY+1] * _grid[maxPosX+2, maxPosY+2] * _grid[maxPosX+3, maxPosY+3];
+                break;
+
+                case 3:
+                    result = _grid[maxPosX, maxPosY] * _grid[maxPosX-1, maxPosY+1] * _grid[maxPosX-2, maxPosY+2] * _grid[maxPosX-3, maxPosY+3];
+                break;
+            }
             _timer.Stop();
             Trace.WriteLine(string.Format("Problem 11, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+        }
+
+
+        //////////////////////////////////////////////////////
+
+
+        // Optimized, still ugly solution. I don't think I can optimize any further without unrolling the loops (even then 
+        // I don't think we'd get interesting gains to be made).
+        public static void Solution2()
+        {
+            _timer.Restart();
+            long result = 0;
+
+            int width = _grid.GetLength(1);
+            int height = _grid.GetLength(0);
+
+            int maxRes = 0;
+            int maxPosX = 0;
+            int maxPosY = 0;
+            int maxDirection = 0;
+
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int origin = _grid[x, y];
+                    if (origin == 0)
+                    {
+                        continue;
+                    }
+
+                    // Horizontal
+                    if (x < width-4)
+                    {
+                        int curRes = origin;
+                        for (int i = 1; i < 4; i++)
+                        {
+                            int val = _grid[x+i, y];
+                            if (val == 0)
+                            {
+                                curRes = -1;
+                                break;
+                            }
+                            curRes += val;
+                        }
+                        if (curRes > maxRes)
+                        {
+                            maxRes = curRes;
+                            maxPosX = x;
+                            maxPosY = y;
+                            maxDirection = 0;
+                        }
+                    }
+
+                    if (y < height-4)
+                    {
+                        // Vertical
+                        {
+                            int curRes = origin;
+                            for (int i = 1; i < 4; i++)
+                            {
+                                int val = _grid[x, y+i];
+                                if (val == 0)
+                                {
+                                    curRes = -1;
+                                    break;
+                                }
+                                curRes += val;
+                            }
+                            if (curRes > maxRes)
+                            {
+                                maxRes = curRes;
+                                maxPosX = x;
+                                maxPosY = y;
+                                maxDirection = 1;
+                            }
+                        }
+
+                        // Diagonal \
+                        if (x < width-4)
+                        {
+                            int curRes = origin;
+                            for (int i = 1; i < 4; i++)
+                            {
+                                int val = _grid[x+i, y+i];
+                                if (val == 0)
+                                {
+                                    curRes = -1;
+                                    break;
+                                }
+                                curRes += val;
+                            }
+                            if (curRes > maxRes)
+                            {
+                                maxRes = curRes;
+                                maxPosX = x;
+                                maxPosY = y;
+                                maxDirection = 2;
+                            }
+                        }
+
+                        // Diagonal /
+                        if (x > 3)
+                        {
+                            int curRes = origin;
+                            for (int i = 1; i < 4; i++)
+                            {
+                                int val = _grid[x-i, y+i];
+                                if (val == 0)
+                                {
+                                    curRes = -1;
+                                    break;
+                                }
+                                curRes += val;
+                            }
+                            if (curRes > maxRes)
+                            {
+                                maxRes = curRes;
+                                maxPosX = x;
+                                maxPosY = y;
+                                maxDirection = 3;
+                            }
+                        }
+                    }
+                }
+            }
+
+            switch (maxDirection)
+            {
+                case 0:
+                    result = _grid[maxPosX, maxPosY] * _grid[maxPosX+1, maxPosY] * _grid[maxPosX+2, maxPosY] * _grid[maxPosX+3, maxPosY];
+                    break;
+
+                case 1:
+                    result = _grid[maxPosX, maxPosY] * _grid[maxPosX, maxPosY+1] * _grid[maxPosX, maxPosY+2] * _grid[maxPosX, maxPosY+3];
+                    break;
+
+                case 2:
+                    result = _grid[maxPosX, maxPosY] * _grid[maxPosX+1, maxPosY+1] * _grid[maxPosX+2, maxPosY+2] * _grid[maxPosX+3, maxPosY+3];
+                    break;
+
+                case 3:
+                    result = _grid[maxPosX, maxPosY] * _grid[maxPosX-1, maxPosY+1] * _grid[maxPosX-2, maxPosY+2] * _grid[maxPosX-3, maxPosY+3];
+                    break;
+            }
+            _timer.Stop();
+            Trace.WriteLine(string.Format("Problem 11, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
         }
     }
 }
