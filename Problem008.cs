@@ -6,7 +6,8 @@ namespace EulerProject
     {
         // The results I got are of the following order of magnitude:
         // 
-        // Problem 8, Solution 1: Value = 40824 in 118 ticks
+        // Problem 8, Solution 1: Value = 40824 in 164 ticks
+        // Problem 8, Solution 2: Value = 40824 in 118 ticks
 
         static Stopwatch _timer = new Stopwatch();
 
@@ -32,7 +33,6 @@ namespace EulerProject
         "05886116467109405077541002256983155200055935729725" +
         "71636269561882670428252483600823257530420752963450";
 
-        // I can't think of a faster solution at the moment.
         public static void Solution1()
         {
             _timer.Restart();
@@ -67,6 +67,51 @@ namespace EulerProject
 
             _timer.Stop();
             Trace.WriteLine(string.Format("Problem 8, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+        }
+
+
+        //////////////////////////////////////////////////////
+
+
+        public static void Solution2()
+        {
+            _timer.Restart();
+
+            int sum = 0;
+            int idx = 0;
+
+            for (int i = 0; i < 995; i++)
+            {
+                int lclSum = 0;
+                for (int j = i; j < i + 5; j++)
+                {
+                    if (value[j] == '0')
+                    {
+                        while (value[j] == '0')
+                        {
+                            j++;
+                        }
+                        i = j;
+                        lclSum = -1;
+                        break;
+                    }
+                    lclSum += (value[j]);
+                }
+                if (lclSum > sum)
+                {
+                    sum = lclSum;
+                    idx = i;
+                }
+            }
+
+            int result = (value[idx] - '0');
+            for (int i = idx+1; i < idx + 5; i++)
+            {
+                result *= (value[i] - '0');
+            }
+
+            _timer.Stop();
+            Trace.WriteLine(string.Format("Problem 8, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
         }
     }
 }
