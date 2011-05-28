@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -12,6 +13,7 @@ namespace EulerProject
         // Problem 1, Solution 2: Total = 233168 in 10205 ticks
         // Problem 1, Solution 3: Total = 233168 in 18398 ticks
         // Problem 1, Solution 4: Total = 233168 in 5 ticks
+        // Problem 1, Solution 4: Total = 233168 in 1 ticks
 
         static Stopwatch _timer = new Stopwatch();
 
@@ -91,6 +93,30 @@ namespace EulerProject
             }
             _timer.Stop();
             Trace.WriteLine(string.Format("Problem 1, Solution 4: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
+        }
+
+
+        //////////////////////////////////////////////////////
+
+
+        public static void Solution5()
+        {
+            _timer.Restart();
+
+            int upperLimit = 1000;
+
+            int nbThrees = upperLimit / 3;
+            int nbFives = upperLimit / 5;
+            int nbFifteens = upperLimit / 15;
+
+            int sumOfThrees = 3 * ((nbThrees * (nbThrees + 1))/2);
+            int sumOfFives = 5 * ((nbFives * (nbFives + 1))/2);
+            int sumOfFifteens = 15 * ((nbFifteens * (nbFifteens + 1))/2);
+
+            int total = (sumOfThrees + sumOfFives) - sumOfFifteens;
+
+            _timer.Stop();
+            Trace.WriteLine(string.Format("Problem 1, Solution 5: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
         }
     }
 }
