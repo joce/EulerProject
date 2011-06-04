@@ -47,6 +47,7 @@ namespace EulerProject
 
         //////////////////////////////////////////////////////
 
+
         // The dictionary cache is memory efficient as the results are sparse. However, it's rather costly in CPU cycles.
         static short Find3nMinusOne2(Dictionary<long, short> cache, long n)
         {
