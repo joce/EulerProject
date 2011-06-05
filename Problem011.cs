@@ -2,6 +2,7 @@
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem011
     {
         // The results I got are of the following order of magnitude:
@@ -35,6 +36,7 @@ namespace EulerProject
         };
 
         // Ugly, copy-pasted solution
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -180,6 +182,7 @@ namespace EulerProject
 
         // Optimized, still ugly solution. I don't think I can optimize any further without unrolling the loops (even then 
         // I don't think we'd get interesting gains to be made).
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();

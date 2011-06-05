@@ -2,6 +2,7 @@
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem048
     {
         // The results I got are of the following order of magnitude:
@@ -23,6 +24,7 @@ namespace EulerProject
             return result;
         }
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();

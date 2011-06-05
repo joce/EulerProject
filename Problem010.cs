@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem010
     {
-
         // The results I got are of the following order of magnitude:
         // 
         // Problem 10, Solution 1: Value = 142913828922 in 88719 ticks
@@ -45,6 +45,7 @@ namespace EulerProject
             }
         }
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -57,6 +58,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();
@@ -97,6 +99,7 @@ namespace EulerProject
 
         // Surprisingly, it appears that the check for if (primes[j] == 0) is more costly that the extra loop
         // for (int i = (sqrt % 2 == 0 ? sqrt + 1 : sqrt); i < max; i+=2)
+        [EulerSolution]
         public static void Solution3()
         {
             _timer.Restart();

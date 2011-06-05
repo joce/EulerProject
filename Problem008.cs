@@ -2,6 +2,7 @@
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem008
     {
         // The results I got are of the following order of magnitude:
@@ -33,6 +34,7 @@ namespace EulerProject
         "05886116467109405077541002256983155200055935729725" +
         "71636269561882670428252483600823257530420752963450";
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -73,6 +75,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();

@@ -3,6 +3,7 @@ using System.Diagnostics;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem014
     {
         // The results I got are of the following order of magnitude:
@@ -24,6 +25,7 @@ namespace EulerProject
             return Find3nMinusOne(n%2 == 0 ? n/2 : 3*n + 1) + 1;
         }
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -70,6 +72,7 @@ namespace EulerProject
             return val;
         }
 
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();
@@ -117,6 +120,7 @@ namespace EulerProject
             return cache[n];
         }
 
+        [EulerSolution]
         public static void Solution3()
         {
             _timer.Restart();

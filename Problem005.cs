@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem005
     {
         // The results I got are of the following order of magnitude:
@@ -16,6 +17,7 @@ namespace EulerProject
 
         static Stopwatch _timer = new Stopwatch();
 
+        [EulerSolution(false, reason: "Takes too long")]
         public static void Solution1()
         {
             _timer.Restart();
@@ -45,6 +47,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution(false, reason: "Takes too long")]
         public static void Solution2()
         {
             _timer.Restart();
@@ -107,6 +110,7 @@ namespace EulerProject
             return primeFactors;
         }
 
+        [EulerSolution]
         public static void Solution3()
         {
             int total = 1;
@@ -139,6 +143,7 @@ namespace EulerProject
 
 
         // Devin's O(n^2) solution.
+        [EulerSolution]
         public static void Solution4()
         {
             int total = 1;

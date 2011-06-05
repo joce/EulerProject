@@ -5,9 +5,9 @@ using System.Numerics;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem016
     {
-
         // The results I got are of the following order of magnitude:
         // 
         // Problem 16, Solution 1: Value = 1366 in 18684 ticks
@@ -16,6 +16,8 @@ namespace EulerProject
 
         static Stopwatch _timer = new Stopwatch();
 
+
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -28,6 +30,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();
@@ -44,6 +47,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution]
         public static void Solution3()
         {
             _timer.Restart();

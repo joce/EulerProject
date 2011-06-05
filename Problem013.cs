@@ -5,6 +5,7 @@ using System.Numerics;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem013
     {
         // The results I got are of the following order of magnitude:
@@ -118,6 +119,7 @@ namespace EulerProject
             BigInteger.Parse("53503534226472524250874054075591789781264330331690"),
         };
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -237,6 +239,7 @@ namespace EulerProject
             "0053503534226472524250874054075591789781264330331690",
         };
 
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();

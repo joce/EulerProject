@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem036
     {
         // The results I got are of the following order of magnitude:
@@ -28,6 +29,7 @@ namespace EulerProject
         }
 
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -40,6 +42,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution]
         public static void Solution2()
         {
             int result = 0;
@@ -90,6 +93,7 @@ namespace EulerProject
             return res;
         }
 
+        [EulerSolution]
         public static void Solution3()
         {
             const int limit = 1000000;

@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem004
     {
         // The results I got are of the following order of magnitude:
@@ -19,6 +20,7 @@ namespace EulerProject
             return strVal.StartsWith(new string(strVal.Substring(strVal.Length/2).Reverse().ToArray()));
         }
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -58,6 +60,7 @@ namespace EulerProject
             return true;
         }
 
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();
@@ -83,6 +86,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution]
         public static void Solution3()
         {
             _timer.Restart();

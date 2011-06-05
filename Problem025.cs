@@ -7,6 +7,7 @@ using System.Numerics;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem025
     {
         // The results I got are of the following order of magnitude:
@@ -30,6 +31,7 @@ namespace EulerProject
             }
         }
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -43,6 +45,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();

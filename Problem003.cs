@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem003
     {
         // The results I got are of the following order of magnitude:
@@ -47,6 +48,7 @@ namespace EulerProject
             return true;
         }
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -72,6 +74,7 @@ namespace EulerProject
             return res;
         }
 
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();
@@ -112,6 +115,7 @@ namespace EulerProject
             }
         }
 
+        [EulerSolution]
         public static void Solution3()
         {
             long seed = 600851475143;
@@ -127,6 +131,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution]
         public static void Solution4()
         {
             _timer.Restart();

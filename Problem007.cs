@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem007
 	{
         // The results I got are of the following order of magnitude:
@@ -47,6 +48,7 @@ namespace EulerProject
         // This version cheats as I use compute the primes using the the sieve of Eratosthenes. However, this method requires you know the upper bound
         // you want to compute your primes to (i.e. compute all primes below 1000000). In this case, I used a rough estimate, got the result, then 
         // use this result as the upper bound.
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -63,6 +65,7 @@ namespace EulerProject
 
         // This is IMO a better general case solution (albeit slower) in the case where you don't know what an approximate value of the prime you're looking for.
         // I've also found that no isqrt implementation I tried was faster that the double Math.Sqrt() cast to an int. Weird.
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();

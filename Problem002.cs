@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem002
     {
         // The results I got are of the following order of magnitude:
@@ -57,6 +58,7 @@ namespace EulerProject
             public IEnumerator<int> GetEnumerator() { return new FiboEnumerator(); }
         }
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -83,6 +85,7 @@ namespace EulerProject
             }
         }
 
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();
@@ -119,6 +122,7 @@ namespace EulerProject
             return rec(rec);
         }
 
+        [EulerSolution]
         public static void Solution3()
         {
             _timer.Restart();
@@ -136,6 +140,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution]
         public static void Solution4()
         {
             _timer.Restart();
@@ -169,7 +174,8 @@ namespace EulerProject
                 current = generator(current);
             }
         }
-        
+
+        [EulerSolution]
         public static void Solution5()
         {
             _timer.Restart();

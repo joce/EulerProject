@@ -2,6 +2,7 @@
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem009
     {
         // The results I got are of the following order of magnitude:
@@ -11,6 +12,7 @@ namespace EulerProject
 
         static Stopwatch _timer = new Stopwatch();
 
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -36,6 +38,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
+        [EulerSolution]
         public static void Solution2()
         {
             // a^2 * b^2 = c^2

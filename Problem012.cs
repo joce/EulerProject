@@ -3,6 +3,7 @@ using System.Diagnostics;
 
 namespace EulerProject
 {
+    [EulerProblem]
     public static class Problem012
     {
         // The results I got are of the following order of magnitude:
@@ -26,6 +27,7 @@ namespace EulerProject
         }
 
         // Brute force solution.
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
