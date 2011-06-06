@@ -81,6 +81,7 @@
     <Compile Include="Problem025.cs" />
     <Compile Include="Problem036.cs" />
     <Compile Include="Problem048.cs" />
+    <Compile Include="Problem067.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +89,7 @@
     <None Include="app.config" />
     <Compile Include="Problem007.cs" />
     <None Include="Extras\Problem022.data" />
+    <None Include="Extras\Problem067.data" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
