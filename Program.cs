@@ -1,9 +1,8 @@
-﻿using System;
-using System.Reflection;
-using System.Linq;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Configuration;
-using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
 
 namespace EulerProject
 {
@@ -11,17 +10,21 @@ namespace EulerProject
     {
         static void Main(string[] args)
         {
-            IEnumerable<string> problems = ConfigurationManager.AppSettings["problems"].Split(',').Select(s => s.TrimStart('0',' '));
+            IEnumerable<string> problems = ConfigurationManager.AppSettings["problems"]
+                                                               .Split(',')
+                                                               .Select(s => s.TrimStart('0',' '));
+
             foreach (var t in Assembly.GetExecutingAssembly().GetTypes()
-                                                             .Where(t => t.IsPublic && t.GetCustomAttributes(typeof(EulerProblemAttribute), false)
-                                                                                        .Any())
+                                                             .Where(t => t.IsPublic && 
+                                                                         t.GetCustomAttributes(typeof(EulerProblemAttribute), false).Any())
                                                              .OrderBy(t => t.Name))
             {
                 if (t.Name.StartsWith("Problem") && problems.Contains(t.Name.Substring("Problem".Length).TrimStart('0')))
                 {
                     foreach (var m in t.GetMethods()
-                                       .Where(m => m.IsStatic && m.IsPublic && m.GetCustomAttributes(typeof(EulerSolutionAttribute), false)
-                                                                                .Any())
+                                       .Where(m => m.IsStatic && 
+                                                   m.IsPublic && 
+                                                   m.GetCustomAttributes(typeof(EulerSolutionAttribute), false).Any())
                                        .OrderBy(m => m.Name))
                     {
                         var attrib = ((EulerSolutionAttribute)m.GetCustomAttributes(typeof(EulerSolutionAttribute), false).First());
