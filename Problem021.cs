@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Diagnostics;
 
 namespace EulerProject
@@ -65,7 +64,7 @@ namespace EulerProject
             _timer.Restart();
 
             int result = 0;
-            Dictionary<int, int> values = new Dictionary<int, int>();
+            int[] values = new int[10000];
             for (int i = 1; i < 10000; i++)
             {
                 int sum = 1;
@@ -79,7 +78,7 @@ namespace EulerProject
                     }
                 }
 
-                values.Add(i, sum);
+                values[i] = sum;
                 if (i > sum && values[sum] == i)
                 {
                     result += (i + sum);
