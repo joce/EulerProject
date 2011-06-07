@@ -5,3 +5,16 @@
 *.manifest
 *.cache
 *.txt
+
+/bin/Debug/EulerProject.exe.config
+/bin/Debug/EulerProject.vshost.exe.config
+/bin/Release/EulerProject.exe.config
+/bin/Release/EulerProject.vshost.exe.config
+/bin/x64/Debug/EulerProject.exe.config
+/bin/x64/Debug/EulerProject.vshost.exe.config
+/bin/x64/Debug/Problem022.data
+/bin/x64/Debug/Problem067.data
+/bin/x64/Release/EulerProject.exe.config
+/bin/x64/Release/EulerProject.vshost.exe.config
+/bin/x64/Release/Problem022.data
+/bin/x64/Release/Problem067.data
