@@ -35,9 +35,9 @@ namespace EulerProject
                     else
                     {
                         Trace.WriteLine(string.Format("Problem {0}, Solution {1}: Disabled ({2})", 
-                                                        t.Name.Substring("Problem".Length).TrimStart('0'),
-                                                        m.Name.Substring("Solution".Length),
-                                                        attrib.Reason));
+                                                       t.Name.Substring("Problem".Length).TrimStart('0'),
+                                                       m.Name.Substring("Solution".Length),
+                                                       attrib.Reason));
                     }
                 }
             }
