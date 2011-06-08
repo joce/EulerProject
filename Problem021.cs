@@ -11,7 +11,7 @@ namespace EulerProject
         // The results I got are of the following order of magnitude:
         // 
         // Problem 21, Solution 1: Value = 31626 in 84208 ticks
-        // Problem 21, Solution 2: Value = 31626 in 19140 ticks
+        // Problem 21, Solution 2: Value = 31626 in 16948 ticks
 
         static Stopwatch _timer = new Stopwatch();
 
