@@ -13,8 +13,8 @@ namespace EulerProject
 
         static Stopwatch _timer = new Stopwatch();
 
-        [EulerSolution]
         // Fast solution, same as Problem 18's fast solution. Not sure how it can be sped up at the moment.
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();

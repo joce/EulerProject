@@ -53,8 +53,8 @@ namespace EulerProject
             }
         }
 
-        [EulerSolution]
         // Brute force solution. It doesn't now but it can keep the list of items in the largest sum path.
+        [EulerSolution]
         public static void Solution1()
         {
             _timer.Restart();
@@ -71,8 +71,8 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
-        [EulerSolution]
         // Fast solution. Can't keep track of the items that make the largest sum path.
+        [EulerSolution]
         public static void Solution2()
         {
             _timer.Restart();
