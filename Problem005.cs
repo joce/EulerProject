@@ -6,18 +6,16 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem005
+    public class Problem005 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 5, Solution 1: Value = 232792560 in 32855954 ticks
         // Problem 5, Solution 2: Value = 232792560 in 518492188 ticks
         // Problem 5, Solution 3: Total = 232792560 in 3275 ticks
         // Problem 5, Solution 4: Total = 232792560 in 11 ticks
 
-        static Stopwatch _timer = new Stopwatch();
-
-        [EulerSolution(false, reason: "Takes too long")]
+		[EulerSolution(false, reason: "Takes too long")]
         public static void Solution1()
         {
             _timer.Restart();
@@ -51,7 +49,7 @@ namespace EulerProject
         public static void Solution2()
         {
             _timer.Restart();
-            int result = 
+            int result =
             Enumerable.Range(1, Int32.MaxValue).Where(i => Enumerable.Range(1, 20).Select(j => i % j).Sum() == 0).First();
             _timer.Stop();
             Trace.WriteLine(string.Format("Problem 5, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));

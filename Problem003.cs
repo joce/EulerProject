@@ -6,16 +6,14 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem003
+    public class Problem003 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 3, Solution 1: Value = 6857 in 175500 ticks
         // Problem 3, Solution 2: Value = 6857 in 69071 ticks
         // Problem 3, Solution 3: Value = 6857 in 57826 ticks
         // Problem 3, Solution 4: Value = 6857 in 33253 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static List<long> FindFactors1(long value)
         {
@@ -23,7 +21,7 @@ namespace EulerProject
             foreach (long i in Enumerable.Range(2, (int)Math.Floor(Math.Sqrt(value))))
             {
                 if (value % i == 0)
-                {   
+                {
                     res.Add(i);
                 }
             }

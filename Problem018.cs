@@ -5,14 +5,12 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem018
+    public class Problem018 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 18, Solution 1: Value = 1074 in 29912 ticks
         // Problem 18, Solution 1: Value = 1074 in 31 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static readonly int [][] triangle = new int [][]
         {

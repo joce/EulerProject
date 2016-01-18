@@ -4,15 +4,13 @@ using System.Numerics;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem015
+    public class Problem015 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 15, Solution 1: Value = 137846528820 in 39 ticks
         // Problem 15, Solution 2: Value = 137846528820 in 126 ticks
         // Problem 15, Solution 2: Value = 137846528820 in 1 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         [EulerSolution]
         public static void Solution1()

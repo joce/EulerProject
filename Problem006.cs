@@ -5,16 +5,14 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem006
+    public class Problem006 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 6, Solution 1: Value = 25164150 in 17164 ticks
         // Problem 6, Solution 2: Value = 25164150 in 379 ticks
         // Problem 6, Solution 3: Value = 25164150 in 2 ticks
         // Problem 6, Solution 4: Value = 25164150 in 0 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         [EulerSolution]
         public static void Solution1()
@@ -73,7 +71,7 @@ namespace EulerProject
             int sum = (((n * n) + n) / 2);
             int result = sum * sum;
 
-            // Found the sum of squares formula here: 
+            // Found the sum of squares formula here:
             // http://answers.yahoo.com/question/index?qid=20091130193118AA2BwrJ
             int sumOfSquares = (n * (n + 1) * (2 * n + 1) ) / 6;
 

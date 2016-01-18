@@ -4,15 +4,13 @@ using System.Diagnostics;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem014
+    public class Problem014: ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 14, Solution 1: Value = 837799 in 2812572 ticks
         // Problem 14, Solution 2: Value = 837799 in 1672917 ticks
         // Problem 14, Solution 1: Value = 837799 in 432930 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         // Brute force, no caching.
         static long Find3nMinusOne(long n)
@@ -57,7 +55,7 @@ namespace EulerProject
             {
                 return 1;
             }
-            
+
             short val = 0;
             if (!cache.ContainsKey(n))
             {

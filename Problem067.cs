@@ -5,13 +5,11 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem067
+    public class Problem067 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 67, Solution 1: Value = 7273 in 8025 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         // Fast solution, same as Problem 18's fast solution. Not sure how it can be sped up at the moment.
         [EulerSolution]

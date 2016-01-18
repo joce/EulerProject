@@ -3,14 +3,12 @@
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem009
+    public class Problem009 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 9, Solution 1: Value = 31875000 in 2618 ticks
         // Problem 9, Solution 2: Value = 31875000 in 6 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         [EulerSolution]
         public static void Solution1()
@@ -48,7 +46,7 @@ namespace EulerProject
             _timer.Restart();
 	        int a = 1;
 	        int b = 2;
- 
+
 	        for (a = 1 ; a < 333 ; a++)
 	        {
 		        int num = 500000 - (1000 * a);

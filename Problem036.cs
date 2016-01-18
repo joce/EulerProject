@@ -5,15 +5,13 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem036
+    public class Problem036 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 36, Solution 1: Total = 872187 in 356114 ticks
         // Problem 36, Solution 2: Total = 872187 in 301185 ticks
         // Problem 36, Solution 3: Total = 872187 in 1684 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static bool IsPalindrome(string value)
         {

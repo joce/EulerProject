@@ -6,14 +6,12 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem022
+    public class Problem022 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 22, Solution 1: Value = 871198282 in 67787 ticks
         // Problem 22, Solution 2: Value = 871198282 in 83760 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         [EulerSolution]
         public static void Solution1()

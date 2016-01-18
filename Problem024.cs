@@ -6,13 +6,11 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem024
+    public class Problem024 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 24, Solution 1: Value = 2783915460 in 473 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static int Factorial(int value)
         {

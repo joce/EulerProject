@@ -3,14 +3,12 @@
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem011
+    public class Problem011 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 11, Solution 1: Value = 70600674 in 219 ticks
         // Problem 11, Solution 2: Value = 70600674 in 177 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static int [,] _grid = new int [,] {
             { 8,  2, 22, 97, 38, 15,  0, 40,  0, 75,  4,  5,  7, 78, 52, 12, 50, 77, 91,  8},
@@ -180,7 +178,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
-        // Optimized, still ugly solution. I don't think I can optimize any further without unrolling the loops (even then 
+        // Optimized, still ugly solution. I don't think I can optimize any further without unrolling the loops (even then
         // I don't think we'd get interesting gains to be made).
         [EulerSolution]
         public static void Solution2()

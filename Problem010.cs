@@ -6,15 +6,13 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem010
+    public class Problem010 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 10, Solution 1: Value = 142913828922 in 88719 ticks
         // Problem 10, Solution 2: Value = 142913828922 in 50901 ticks
         // Problem 10, Solution 3: Value = 142913828922 in 54379 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         public static IEnumerable<long> Primes(long max)
         {

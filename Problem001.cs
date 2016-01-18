@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem001
+	public class Problem001 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 1, Solution 1: Total = 233168 in 370 ticks
         // Problem 1, Solution 2: Total = 233168 in 10205 ticks
         // Problem 1, Solution 3: Total = 233168 in 18398 ticks
         // Problem 1, Solution 4: Total = 233168 in 5 ticks
         // Problem 1, Solution 4: Total = 233168 in 1 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         [EulerSolution]
         public static void Solution1()

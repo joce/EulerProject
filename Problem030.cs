@@ -1,25 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem030
+    public class Problem030 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 30, Solution 1: Total = 443839 in 419409 ticks
         // Problem 30, Solution 2: Total = 443839 in 68359 ticks
 
-        static Stopwatch _timer = new Stopwatch();
-
         static readonly int[] _pow5Digits = {
-            0, 
-            1, 
+            0,
+            1,
             (int)Math.Pow(2, 5),
             (int)Math.Pow(3, 5),
             (int)Math.Pow(4, 5),

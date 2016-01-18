@@ -6,14 +6,12 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem021
+    public class Problem021 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 21, Solution 1: Value = 31626 in 84208 ticks
         // Problem 21, Solution 2: Value = 31626 in 16948 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static IEnumerable<int> FindFactors1(int value)
         {
@@ -48,7 +46,7 @@ namespace EulerProject
             }
 
             int result = amicable.Sum();
-                        
+
             _timer.Stop();
 
             Trace.WriteLine(string.Format("Problem 21, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));

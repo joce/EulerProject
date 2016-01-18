@@ -3,14 +3,12 @@
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem019
+    public class Problem019 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 19, Solution 1: Value = 171 in 262 ticks
         // Problem 19, Solution 1: Value = 171 in 1203 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static readonly int[] _daysInMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
@@ -24,7 +22,7 @@ namespace EulerProject
             int day = 6;
             int month = 0;
             int daysInMonth = _daysInMonth[month];
-            
+
             while (year < 2001)
             {
                 day += 7;
@@ -65,7 +63,7 @@ namespace EulerProject
                 return 29;
             }
         }
-        
+
         // Proper solution with the right number of days traken into account.
         [EulerSolution]
         public static void Solution2()

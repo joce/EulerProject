@@ -6,14 +6,12 @@ using System.Linq;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem007
+    public class Problem007 : ProblemBase
 	{
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 7, Solution 1: Value = 104743 in 35707 ticks
         // Problem 7, Solution 2: Value = 104743 in 92947 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         public static IEnumerable<int> Primes(int max)
         {
@@ -46,7 +44,7 @@ namespace EulerProject
 
 
         // This version cheats as I use compute the primes using the the sieve of Eratosthenes. However, this method requires you know the upper bound
-        // you want to compute your primes to (i.e. compute all primes below 1000000). In this case, I used a rough estimate, got the result, then 
+        // you want to compute your primes to (i.e. compute all primes below 1000000). In this case, I used a rough estimate, got the result, then
         // use this result as the upper bound.
         [EulerSolution]
         public static void Solution1()
@@ -85,7 +83,7 @@ namespace EulerProject
                         isPrime = false;
                     }
                 }
-                if (isPrime) 
+                if (isPrime)
                 {
                     primes[nbPrime++] = i;
                 }

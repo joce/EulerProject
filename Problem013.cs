@@ -6,14 +6,12 @@ using System.Numerics;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem013
+    public class Problem013 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 10, Solution 1: Value = 5537376230 in 10808 ticks
         // Problem 10, Solution 2: Value = 5537376230 in 4735 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static BigInteger[] _bigIntValues = new BigInteger[]
         {
@@ -132,7 +130,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
-        // Padded the numbers with "00" to be able to easily add the "retainer" of the 
+        // Padded the numbers with "00" to be able to easily add the "retainer" of the
         // addition. With 100 numbers, the highest possible "retain" value is 90 which
         // fits in two additionnal digits.
         static List<string> _stringValues = new List<string>()

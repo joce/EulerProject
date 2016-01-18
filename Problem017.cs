@@ -3,13 +3,11 @@
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem017
+    public class Problem017 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 18, Solution 1: Value = 21124 in 2716 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static readonly string[] _units = new string[]
         {
@@ -100,7 +98,7 @@ namespace EulerProject
         public static void Solution1()
         {
             _timer.Restart();
-            
+
             int result = 0;
             for (int i = 0; i <= 9; i++)
             {

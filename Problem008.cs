@@ -3,16 +3,14 @@
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem008
+    public class Problem008 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 8, Solution 1: Value = 40824 in 164 ticks
         // Problem 8, Solution 2: Value = 40824 in 118 ticks
 
-        static Stopwatch _timer = new Stopwatch();
-
-        const string value = 
+        const string value =
         "73167176531330624919225119674426574742355349194934" +
         "96983520312774506326239578318016984801869478851843" +
         "85861560789112949495459501737958331952853208805511" +

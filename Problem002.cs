@@ -6,18 +6,29 @@ using System.Linq;
 
 namespace EulerProject
 {
+	public static class Generator
+	{
+		public static IEnumerable<T> Generate<T>(this T first, Func<T, T> generator)
+		{
+			T current = first;
+			for (; ; )
+			{
+				yield return current;
+				current = generator(current);
+			}
+		}
+	}
+
     [EulerProblem]
-    public static class Problem002
+	public class Problem002 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 2, Solution 1: Total = 4613732 in 27253 ticks
         // Problem 2, Solution 2: Total = 4613732 in 4082 ticks
         // Problem 2, Solution 3: Total = 4613732 in 29251 ticks
         // Problem 2, Solution 4: Total = 4613732 in 1 ticks
         // Problem 2, Solution 5: Total = 4613732 in 9393 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         class FiboEnumerator : IEnumerator<int>
         {
@@ -40,7 +51,7 @@ namespace EulerProject
             int Prev { get; set; }
             public int Current { get; private set; }
 
-            public void Reset() 
+            public void Reset()
             {
                 Prev = 0;
                 Current = 1;
@@ -49,7 +60,7 @@ namespace EulerProject
             object IEnumerator.Current
             {
                 get { return Current; }
-            }            
+            }
         }
 
         class Fibo : IEnumerable<int>
@@ -164,16 +175,6 @@ namespace EulerProject
 
         //////////////////////////////////////////////////////
 
-
-        public static IEnumerable<T> Generate<T>(this T first, Func<T, T> generator)
-        {
-            T current = first;
-            for (;;)
-            {
-                yield return current;
-                current = generator(current);
-            }
-        }
 
         [EulerSolution]
         public static void Solution5()

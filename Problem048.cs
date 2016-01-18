@@ -3,13 +3,11 @@
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem048
+    public class Problem048 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 48, Solution 1: Value = 9110846700 in 42739 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         const long _maxVal = 10000000000;
 

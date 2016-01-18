@@ -4,13 +4,11 @@ using System.Diagnostics;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem012
+    public class Problem012 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 12, Solution 1: Value = 76576500 in 4285597 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static int HalfDivisorCount(long val)
         {

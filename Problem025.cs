@@ -6,14 +6,12 @@ using System.Numerics;
 namespace EulerProject
 {
     [EulerProblem]
-    public static class Problem025
+    public class Problem025 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
-        // 
+        //
         // Problem 25, Solution 1: Value = 4782 in 316790 ticks
         // Problem 25, Solution 2: Total = 4782 in 234651 ticks
-
-        static Stopwatch _timer = new Stopwatch();
 
         static IEnumerable<BigInteger> GetFibo()
         {
