@@ -50,7 +50,7 @@ namespace EulerProject
         {
             _timer.Restart();
             int result =
-            Enumerable.Range(1, Int32.MaxValue).Where(i => Enumerable.Range(1, 20).Select(j => i % j).Sum() == 0).First();
+            Enumerable.Range(1, Int32.MaxValue).First(i => Enumerable.Range(1, 20).Select(j => i % j).Sum() == 0);
             _timer.Stop();
             Trace.WriteLine(string.Format("Problem 5, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
         }
@@ -76,9 +76,7 @@ namespace EulerProject
                 }
             }
 
-            var primes = new List<int>();
-            primes.Add(1);
-            primes.Add(2);
+            var primes = new List<int> {1, 2};
             for (int i = 3; i < max; i+=2)
             {
                 if (naturals[i] == 0)
@@ -151,7 +149,7 @@ namespace EulerProject
             for (int i = 2; i <= 20; ++i)
             {
                 int value = i;
-                int j = 0;
+                int j;
                 for (j = 2; j < i; ++j)
                 {
                     if (value % factors[j] == 0)

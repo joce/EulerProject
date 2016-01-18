@@ -18,7 +18,7 @@ namespace EulerProject
         static List<long> FindFactors1(long value)
         {
             var res = new List<long>();
-            foreach (long i in Enumerable.Range(2, (int)Math.Floor(Math.Sqrt(value))))
+            foreach (int i in Enumerable.Range(2, (int)Math.Floor(Math.Sqrt(value))))
             {
                 if (value % i == 0)
                 {
@@ -28,14 +28,13 @@ namespace EulerProject
             return res;
         }
 
-        static HashSet<long> primes = new HashSet<long>();
-
         static bool IsPrime(long value)
         {
             if (value % 2 == 0)
             {
                 return false;
             }
+
             for (int i = 3; i < (int)Math.Floor(Math.Sqrt(value)); i+=2)
             {
                 if (value % i == 0)
@@ -62,7 +61,7 @@ namespace EulerProject
         static List<long> FindFactors2(long value)
         {
             var res = new List<long>();
-            foreach (long i in Enumerable.Range(2, (int)Math.Floor(Math.Sqrt(value))))
+            foreach (int i in Enumerable.Range(2, (int)Math.Floor(Math.Sqrt(value))))
             {
                 if (value % i == 0 && IsPrime(i))
                 {
@@ -119,7 +118,7 @@ namespace EulerProject
             long seed = 600851475143;
             _timer.Restart();
 
-            int value = Primes((int)Math.Ceiling(Math.Sqrt(seed))).Where(i => seed % i == 0).Last();
+            int value = Primes((int)Math.Ceiling(Math.Sqrt(seed))).Last(i => seed % i == 0);
 
             _timer.Stop();
             Trace.WriteLine(string.Format("Problem 3, Solution 3: Value = {0} in {1} ticks", value, _timer.ElapsedTicks));

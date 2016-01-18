@@ -9,8 +9,8 @@ namespace EulerProject
         //
         // Problem 18, Solution 1: Value = 21124 in 2716 ticks
 
-        static readonly string[] _units = new string[]
-        {
+        static readonly string[] _units =
+		{
             "zero",
             "one",
             "two",
@@ -23,7 +23,7 @@ namespace EulerProject
             "nine",
         };
 
-        static readonly string[] _teens = new string[]
+        static readonly string[] _teens =
         {
             "ten",
             "eleven",
@@ -37,7 +37,7 @@ namespace EulerProject
             "nineteen",
         };
 
-        static readonly string[] _tens = new string[]
+        static readonly string[] _tens =
         {
             "units", // unused
             "teens", // unused

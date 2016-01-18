@@ -13,7 +13,7 @@ namespace EulerProject
         // Problem 10, Solution 1: Value = 5537376230 in 10808 ticks
         // Problem 10, Solution 2: Value = 5537376230 in 4735 ticks
 
-        static BigInteger[] _bigIntValues = new BigInteger[]
+        static readonly BigInteger[] _bigIntValues =
         {
             BigInteger.Parse("37107287533902102798797998220837590246510135740250"),
             BigInteger.Parse("46376937677490009712648124896970078050417018260538"),
@@ -132,8 +132,8 @@ namespace EulerProject
 
         // Padded the numbers with "00" to be able to easily add the "retainer" of the
         // addition. With 100 numbers, the highest possible "retain" value is 90 which
-        // fits in two additionnal digits.
-        static List<string> _stringValues = new List<string>()
+        // fits in two additional digits.
+        static readonly List<string> _stringValues = new List<string>
         {
             "0037107287533902102798797998220837590246510135740250",
             "0046376937677490009712648124896970078050417018260538",
@@ -237,7 +237,7 @@ namespace EulerProject
             "0053503534226472524250874054075591789781264330331690",
         };
 
-        [EulerSolution]
+        [EulerSolution(false, reason: "Invalid result")]
         public static void Solution2()
         {
             _timer.Restart();

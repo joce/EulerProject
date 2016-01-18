@@ -65,7 +65,7 @@ namespace EulerProject
 
         class Fibo : IEnumerable<int>
         {
-            IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator)GetEnumerator(); }
+            IEnumerator IEnumerable.GetEnumerator() { return GetEnumerator(); }
             public IEnumerator<int> GetEnumerator() { return new FiboEnumerator(); }
         }
 

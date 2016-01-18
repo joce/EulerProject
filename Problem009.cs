@@ -44,19 +44,19 @@ namespace EulerProject
             // b = (500000 - 1000a) / (1000 - a)
 
             _timer.Restart();
-	        int a = 1;
+            int a;
 	        int b = 2;
 
-	        for (a = 1 ; a < 333 ; a++)
-	        {
-		        int num = 500000 - (1000 * a);
-		        int denom = 1000 - a;
-		        if (num % denom == 0)
-		        {
-			        b = num / denom ;
+            for (a = 1 ; a < 333 ; a++)
+            {
+                int num = 500000 - (1000 * a);
+                int denom = 1000 - a;
+                if (num % denom == 0)
+                {
+                    b = num / denom ;
                     break;
-		        }
-	        }
+                }
+            }
 
             int result = a * b * (1000 - (a+b));
             _timer.Stop();

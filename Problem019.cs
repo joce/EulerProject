@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace EulerProject
 {
@@ -52,19 +53,7 @@ namespace EulerProject
         //////////////////////////////////////////////////////
 
 
-        static int GetDaysInMonth(int month, int year)
-        {
-            if (month != 1 || year % 4 != 0 || (year % 100 == 0 && year % 400 != 0))
-            {
-                return _daysInMonth[month];
-            }
-            else
-            {
-                return 29;
-            }
-        }
-
-        // Proper solution with the right number of days traken into account.
+        // Proper solution with the right number of days taken into account.
         [EulerSolution]
         public static void Solution2()
         {
@@ -72,8 +61,8 @@ namespace EulerProject
             int result = 0;
             int year = 1900;
             int day = 6;
-            int month = 0;
-            int daysInMonth = GetDaysInMonth(month, year);
+            int month = 1;
+            int daysInMonth = DateTime.DaysInMonth(year, month);
 
             while (year < 2001)
             {
@@ -82,12 +71,12 @@ namespace EulerProject
                 if (newDay < day)
                 {
                     month++;
-                    if (month >= 12)
+                    if (month > 12)
                     {
-                        month = 0;
+                        month = 1;
                         year++;
                     }
-                    daysInMonth = GetDaysInMonth(month, year);
+                    daysInMonth = DateTime.DaysInMonth(year, month);
                 }
                 day = newDay;
                 if (day == 0 && year >= 1901)

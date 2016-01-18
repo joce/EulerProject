@@ -15,15 +15,15 @@ namespace EulerProject
                                                                .Select(s => s.TrimStart('0',' '));
 
             foreach (var t in Assembly.GetExecutingAssembly().GetTypes()
-                                                             .Where(t => t.IsPublic && 
+                                                             .Where(t => t.IsPublic &&
                                                                          t.GetCustomAttributes(typeof(EulerProblemAttribute), false).Any() &&
                                                                          t.Name.StartsWith("Problem") &&
                                                                          problems.Contains(t.Name.Substring("Problem".Length).TrimStart('0')))
                                                              .OrderBy(t => t.Name))
             {
                 foreach (var m in t.GetMethods()
-                                   .Where(m => m.IsStatic && 
-                                               m.IsPublic && 
+                                   .Where(m => m.IsStatic &&
+                                               m.IsPublic &&
                                                m.GetCustomAttributes(typeof(EulerSolutionAttribute), false).Any())
                                    .OrderBy(m => m.Name))
                 {
@@ -34,7 +34,7 @@ namespace EulerProject
                     }
                     else
                     {
-                        Trace.WriteLine(string.Format("Problem {0}, Solution {1}: Disabled ({2})", 
+                        Trace.WriteLine(string.Format("Problem {0}, Solution {1}: Disabled ({2})",
                                                        t.Name.Substring("Problem".Length).TrimStart('0'),
                                                        m.Name.Substring("Solution".Length),
                                                        attrib.Reason));

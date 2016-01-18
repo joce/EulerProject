@@ -56,7 +56,7 @@ namespace EulerProject
                 return 1;
             }
 
-            short val = 0;
+            short val;
             if (!cache.ContainsKey(n))
             {
                 val = (short)(Find3nMinusOne2(cache, n%2 == 0 ? n/2 : 3*n + 1) + 1);
