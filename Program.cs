@@ -10,6 +10,7 @@ namespace EulerProject
     {
         static void Main(string[] args)
         {
+	        bool runAllProblems = ConfigurationManager.AppSettings["problems"].ToLower() == "all";
             IEnumerable<string> problems = ConfigurationManager.AppSettings["problems"]
                                                                .Split(',')
                                                                .Select(s => s.TrimStart('0',' '));
@@ -18,7 +19,7 @@ namespace EulerProject
                                                              .Where(t => t.IsPublic &&
                                                                          t.GetCustomAttributes(typeof(EulerProblemAttribute), false).Any() &&
                                                                          t.Name.StartsWith("Problem") &&
-                                                                         problems.Contains(t.Name.Substring("Problem".Length).TrimStart('0')))
+                                                                         (runAllProblems || problems.Contains(t.Name.Substring("Problem".Length).TrimStart('0'))))
                                                              .OrderBy(t => t.Name))
             {
                 foreach (var m in t.GetMethods()
