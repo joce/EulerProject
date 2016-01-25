@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
     public class Problem007 : ProblemBase
-	{
+    {
         // The results I got are of the following order of magnitude:
         //
         // Problem 7, Solution 1: Value = 104743 in 35707 ticks
@@ -47,14 +46,14 @@ namespace EulerProject
         // you want to compute your primes to (i.e. compute all primes below 1000000). In this case, I used a rough estimate, got the result, then
         // use this result as the upper bound.
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
 
             // 10002 because in the problem, they don't seem to assume 1 is prime.
             int result = Primes(104745).Take(10002).Last();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 7, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -64,7 +63,7 @@ namespace EulerProject
         // This is IMO a better general case solution (albeit slower) in the case where you don't know what an approximate value of the prime you're looking for.
         // I've also found that no isqrt implementation I tried was faster that the double Math.Sqrt() cast to an int. Weird.
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
             int result = 0;
@@ -93,8 +92,9 @@ namespace EulerProject
                     break;
                 }
             }
+            _timer.Stop();
 
-            Trace.WriteLine(string.Format("Problem 7, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

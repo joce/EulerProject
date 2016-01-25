@@ -97,7 +97,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <Compile Include="Problem007.cs" />
     <None Include="Extras\Problem022.data" />
     <None Include="Extras\Problem067.data" />

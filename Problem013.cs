@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 
@@ -118,12 +117,12 @@ namespace EulerProject
         };
 
         [EulerSolution]
-        public static void Solution1()
+        public static long Solution1()
         {
             _timer.Restart();
             long result = long.Parse(_bigIntValues.Aggregate((sum, i) => sum+i).ToString().Substring(0,10));
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 13, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -238,7 +237,7 @@ namespace EulerProject
         };
 
         [EulerSolution(false, reason: "Invalid result")]
-        public static void Solution2()
+        public static string Solution2()
         {
             _timer.Restart();
             string format = "0000000000000000000000000000000000000000000000000000";
@@ -259,9 +258,9 @@ namespace EulerProject
                     result[i] = format.Last();
                 }
             }
+	        string res = new string(result);
             _timer.Stop();
-
-            Trace.WriteLine(string.Format("Problem 13, Solution 2: Value = {0} in {1} ticks", new string(result), _timer.ElapsedTicks));
+            return res;
         }
     }
 }

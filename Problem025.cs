@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 
@@ -28,13 +27,13 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             int cnt = 1;
             int result = GetFibo().TakeWhile(bi=> bi.ToString().Length < 1000).Select(bi => ++cnt).Last();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 25, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -42,7 +41,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
             BigInteger prev = 0;
@@ -56,7 +55,7 @@ namespace EulerProject
                 prev = temp;
             }
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 25, Solution 2: Total = {0} in {1} ticks", cnt, _timer.ElapsedTicks));
+            return cnt;
         }
     }
 }

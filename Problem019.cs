@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace EulerProject
 {
@@ -15,7 +14,7 @@ namespace EulerProject
 
         // Wow... Somehow, NOT taking into account ANY leap year leads to the correct answer. That is weird.
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             int result = 0;
@@ -45,8 +44,7 @@ namespace EulerProject
                 }
             }
             _timer.Stop();
-
-            Trace.WriteLine(string.Format("Problem 19, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -55,7 +53,7 @@ namespace EulerProject
 
         // Proper solution with the right number of days taken into account.
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
             int result = 0;
@@ -85,8 +83,7 @@ namespace EulerProject
                 }
             }
             _timer.Stop();
-
-            Trace.WriteLine(string.Format("Problem 19, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

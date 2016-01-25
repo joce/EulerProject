@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace EulerProject
+﻿namespace EulerProject
 {
     [EulerProblem]
     public class Problem011 : ProblemBase
@@ -35,7 +33,7 @@ namespace EulerProject
 
         // Ugly, copy-pasted solution
         [EulerSolution]
-        public static void Solution1()
+        public static long Solution1()
         {
             _timer.Restart();
             long result = 0;
@@ -171,7 +169,7 @@ namespace EulerProject
                 break;
             }
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 11, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -181,7 +179,7 @@ namespace EulerProject
         // Optimized, still ugly solution. I don't think I can optimize any further without unrolling the loops (even then
         // I don't think we'd get interesting gains to be made).
         [EulerSolution]
-        public static void Solution2()
+        public static long Solution2()
         {
             _timer.Restart();
             long result = 0;
@@ -320,7 +318,7 @@ namespace EulerProject
                     break;
             }
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 11, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

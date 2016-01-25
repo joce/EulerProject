@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
@@ -15,12 +14,12 @@ namespace EulerProject
         // Problem 6, Solution 4: Value = 25164150 in 0 ticks
 
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             int result = (int)Math.Pow(Enumerable.Range(1,100).Sum(),2) - Enumerable.Range(1,100).Select(i=> i*i).Sum();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 6, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -28,14 +27,14 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
             const int n = 100;
             int sum = (((n * n) + n) / 2);
             int result = (sum*sum) - Enumerable.Range(1, 100).Select(i => i*i).Sum();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 6, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -43,7 +42,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution3()
+        public static int Solution3()
         {
             _timer.Restart();
             const int n = 100;
@@ -56,7 +55,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 6, Solution 3: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -64,7 +63,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution4()
+        public static int Solution4()
         {
             _timer.Restart();
             const int n = 100;
@@ -78,7 +77,7 @@ namespace EulerProject
             result -= sumOfSquares;
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 6, Solution 4: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

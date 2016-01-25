@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace EulerProject
+﻿namespace EulerProject
 {
     [EulerProblem]
     public class Problem017 : ProblemBase
@@ -10,7 +8,7 @@ namespace EulerProject
         // Problem 18, Solution 1: Value = 21124 in 2716 ticks
 
         static readonly string[] _units =
-		{
+        {
             "zero",
             "one",
             "two",
@@ -95,7 +93,7 @@ namespace EulerProject
 
         // Rather crappy problem. Not looking for a better solution.
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
 
@@ -107,8 +105,7 @@ namespace EulerProject
 
             result += "one".Length + "thousand".Length;
             _timer.Stop();
-
-            Trace.WriteLine(string.Format("Problem 17, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

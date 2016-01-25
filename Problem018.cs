@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
@@ -53,16 +52,15 @@ namespace EulerProject
 
         // Brute force solution. It doesn't now but it can keep the list of items in the largest sum path.
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
-
+            _max = 0;
             Stack<int> myItems = new Stack<int>();
             SearchTriangle(0,0,myItems);
             _timer.Stop();
 
-            int result = _max;
-            Trace.WriteLine(string.Format("Problem 18, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return _max;
         }
 
 
@@ -71,7 +69,7 @@ namespace EulerProject
 
         // Fast solution. Can't keep track of the items that make the largest sum path.
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
 
@@ -106,11 +104,10 @@ namespace EulerProject
                 cur ^= 1;
                 next ^= 1;
             }
+            int result = temp[cur].Max();
             _timer.Stop();
 
-            int result = temp[cur].Max();
-
-            Trace.WriteLine(string.Format("Problem 18, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

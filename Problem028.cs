@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 
 namespace EulerProject
 {
@@ -25,12 +24,12 @@ namespace EulerProject
         //
         // We also need to add 1 to the computed total as it's the center of both diagonals.
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             int result = Enumerable.Range(1, 500).Select(n => (16 * (n * n)) + (4 * n) + 4).Sum() + 1;
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 28, Solution 1: Total = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -45,7 +44,7 @@ namespace EulerProject
         // 16*sum(n^2) + 2n^2 + 2n + 4n + 1
         // 16*sum(n^2) + 2n^2 + 6n + 1
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
             int result = 0;
@@ -59,7 +58,7 @@ namespace EulerProject
             result += 6 * limit;
             result += 1;
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 28, Solution 2: Total = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

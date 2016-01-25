@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 
 namespace EulerProject
@@ -13,7 +12,7 @@ namespace EulerProject
 
         // Fast solution, same as Problem 18's fast solution. Not sure how it can be sped up at the moment.
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             var triangle = File.ReadAllLines("Problem067.data").Select(line => line.Split(' ').Select(item => int.Parse(item)).ToArray()).ToArray();
@@ -49,11 +48,11 @@ namespace EulerProject
                 cur ^= 1;
                 next ^= 1;
             }
-            _timer.Stop();
 
             int result = temp[cur].Max();
+            _timer.Stop();
 
-            Trace.WriteLine(string.Format("Problem 67, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace EulerProject
+﻿namespace EulerProject
 {
     [EulerProblem]
     public class Problem008 : ProblemBase
@@ -33,7 +31,7 @@ namespace EulerProject
         "71636269561882670428252483600823257530420752963450";
 
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
 
@@ -66,7 +64,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 8, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -74,7 +72,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
 
@@ -112,7 +110,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 8, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

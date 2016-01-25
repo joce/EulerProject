@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace EulerProject
 {
@@ -26,7 +25,7 @@ namespace EulerProject
 
         // Brute force solution.
         [EulerSolution]
-        public static void Solution1()
+        public static long Solution1()
         {
             _timer.Restart();
             long result = 0;
@@ -43,8 +42,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-
-            Trace.WriteLine(string.Format("Problem 12, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

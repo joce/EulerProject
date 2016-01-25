@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
@@ -27,7 +26,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
 
@@ -46,10 +45,9 @@ namespace EulerProject
             }
 
             int result = amicable.Sum();
-
             _timer.Stop();
 
-            Trace.WriteLine(string.Format("Problem 21, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -57,7 +55,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
 
@@ -85,7 +83,7 @@ namespace EulerProject
 
             _timer.Stop();
 
-            Trace.WriteLine(string.Format("Problem 21, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

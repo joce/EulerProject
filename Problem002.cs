@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
-	public static class Generator
-	{
-		public static IEnumerable<T> Generate<T>(this T first, Func<T, T> generator)
-		{
-			T current = first;
-			for (; ; )
-			{
-				yield return current;
-				current = generator(current);
-			}
-		}
-	}
+    public static class Generator
+    {
+        public static IEnumerable<T> Generate<T>(this T first, Func<T, T> generator)
+        {
+            T current = first;
+            for (;;)
+            {
+                yield return current;
+                current = generator(current);
+            }
+        }
+    }
 
     [EulerProblem]
-	public class Problem002 : ProblemBase
+    public class Problem002 : ProblemBase
     {
         // The results I got are of the following order of magnitude:
         //
@@ -70,12 +69,12 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             int total = new Fibo().Where(i => i % 2 == 0).TakeWhile(i => i < 4000000).Sum();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 2, Solution 1: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
+            return total;
         }
 
 
@@ -97,12 +96,12 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
             int total = GetFibo().Where(i => i % 2 == 0).TakeWhile(i => i < 4000000).Sum();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 2, Solution 2: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
+            return total;
         }
 
 
@@ -134,7 +133,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution3()
+        public static int Solution3()
         {
             _timer.Restart();
             var fib = MemoizeY<int, int>(f => n => n > 1 ? f(n - 1) + f(n - 2) : 1);
@@ -144,7 +143,7 @@ namespace EulerProject
                                   .TakeWhile(n => n < 4000000)
                                   .Sum();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 2, Solution 3: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
+            return total;
         }
 
 
@@ -152,7 +151,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution4()
+        public static int Solution4()
         {
             _timer.Restart();
             int prev = 0;
@@ -169,7 +168,7 @@ namespace EulerProject
                 prev = temp;
             }
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 2, Solution 4: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
+            return total;
         }
 
 
@@ -177,7 +176,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution5()
+        public static int Solution5()
         {
             _timer.Restart();
 
@@ -204,7 +203,7 @@ namespace EulerProject
                              .Sum();
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 2, Solution 5: Total = {0} in {1} ticks", total, _timer.ElapsedTicks));
+            return total;
         }
     }
 }

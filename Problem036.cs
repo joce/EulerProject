@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
@@ -28,12 +27,12 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             int result = Enumerable.Range(1, 1000000).Where(i => IsPalindrome(i.ToString()) && IsPalindrome(Convert.ToString(i, 2))).Sum();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 36, Solution 1: Total = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -41,7 +40,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             int result = 0;
 
@@ -54,7 +53,7 @@ namespace EulerProject
                 }
             }
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 36, Solution 2: Total = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -92,12 +91,12 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution3()
+        public static int Solution3()
         {
-            const int limit = 1000000;
+			_timer.Restart();
+			const int limit = 1000000;
             int result = 0;
             int i = 1;
-            _timer.Restart();
             int p = MakePalindromeBase2(i, true);
             while (p < limit)
             {
@@ -121,7 +120,7 @@ namespace EulerProject
                 p = MakePalindromeBase2(i, false);
             }
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 36, Solution 3: Total = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

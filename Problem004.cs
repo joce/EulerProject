@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 
 namespace EulerProject
 {
@@ -19,7 +18,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
 
@@ -37,7 +36,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 4, Solution 1: Value = {0} in {1} ticks", value, _timer.ElapsedTicks));
+            return value;
         }
 
 
@@ -59,7 +58,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
 
@@ -77,7 +76,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 4, Solution 2: Value = {0} in {1} ticks", value, _timer.ElapsedTicks));
+            return value;
         }
 
 
@@ -85,7 +84,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution3()
+        public static int Solution3()
         {
             _timer.Restart();
 
@@ -103,7 +102,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 4, Solution 3: Value = {0} in {1} ticks", value, _timer.ElapsedTicks));
+            return value;
         }
     }
 }

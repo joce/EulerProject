@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
@@ -44,12 +43,12 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution1()
+        public static long Solution1()
         {
             _timer.Restart();
             long result = Primes(2000000).Sum();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 10, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -57,10 +56,10 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution2()
+        public static long Solution2()
         {
             _timer.Restart();
-            int max = 2000000;
+            const int max = 2000000;
 
             byte[] primes = new byte[max];
             primes.Initialize();
@@ -88,7 +87,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 10, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -98,10 +97,10 @@ namespace EulerProject
         // Surprisingly, it appears that the check for if (primes[j] == 0) is more costly that the extra loop
         // for (int i = (sqrt % 2 == 0 ? sqrt + 1 : sqrt); i < max; i+=2)
         [EulerSolution]
-        public static void Solution3()
+        public static long Solution3()
         {
             _timer.Restart();
-            long max = 2000000;
+            const long max = 2000000;
 
             byte[] primes = new byte[max+1];
             primes.Initialize();
@@ -125,7 +124,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 10, Solution 3: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

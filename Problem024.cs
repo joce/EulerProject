@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
@@ -22,9 +21,9 @@ namespace EulerProject
             return result;
         }
 
-        // I beleive this is fast enough. I also can't think of a way to optimize this further at the moment.
+        // I believe this is fast enough. I also can't think of a way to optimize this further at the moment.
         [EulerSolution]
-        public static void Solution1()
+        public static long Solution1()
         {
             _timer.Restart();
             var originalList = new List<int>{0,1,2,3,4,5,6,7,8,9};
@@ -43,12 +42,10 @@ namespace EulerProject
                 place--;
             }
             resultList.Add(originalList[0]);
+            long result = Int64.Parse(resultList.ConvertAll(i => i.ToString()).Aggregate(string.Concat));
             _timer.Stop();
 
-            long result =
-                Int64.Parse(resultList.ConvertAll(i => i.ToString()).Aggregate((cur, next) => string.Concat(cur, next)));
-
-            Trace.WriteLine(string.Format("Problem 24, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

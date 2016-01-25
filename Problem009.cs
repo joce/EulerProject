@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace EulerProject
+﻿namespace EulerProject
 {
     [EulerProblem]
     public class Problem009 : ProblemBase
@@ -11,7 +9,7 @@ namespace EulerProject
         // Problem 9, Solution 2: Value = 31875000 in 6 ticks
 
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             int result = 0;
@@ -29,7 +27,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 9, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -37,7 +35,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             // a^2 * b^2 = c^2
             // c = 1000 - (a + b)
@@ -45,7 +43,7 @@ namespace EulerProject
 
             _timer.Restart();
             int a;
-	        int b = 2;
+            int b = 2;
 
             for (a = 1 ; a < 333 ; a++)
             {
@@ -60,7 +58,7 @@ namespace EulerProject
 
             int result = a * b * (1000 - (a+b));
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 9, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

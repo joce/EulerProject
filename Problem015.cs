@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace EulerProject
 {
@@ -13,7 +12,7 @@ namespace EulerProject
         // Problem 15, Solution 2: Value = 137846528820 in 1 ticks
 
         [EulerSolution]
-        public static void Solution1()
+        public static long Solution1()
         {
             _timer.Restart();
             int size = 20;
@@ -42,8 +41,7 @@ namespace EulerProject
 
             long result = values[prev][size];
             _timer.Stop();
-
-            Trace.WriteLine(string.Format("Problem 15, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -51,7 +49,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution2()
+        public static BigInteger Solution2()
         {
             _timer.Restart();
             int size = 20;
@@ -65,7 +63,7 @@ namespace EulerProject
             }
             result /= divider;
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 15, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -73,13 +71,13 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution3()
+        public static long Solution3()
         {
             _timer.Restart();
             // 40! / ((20!)(20!)) simplified.
             long result = 23L * 29L * 31L * 33L * 35L * 37L * 39L * 4;
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 15, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

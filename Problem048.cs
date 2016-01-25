@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace EulerProject
+﻿namespace EulerProject
 {
     [EulerProblem]
     public class Problem048 : ProblemBase
@@ -23,7 +21,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution1()
+        public static ulong Solution1()
         {
             _timer.Restart();
             ulong result = 0;
@@ -33,7 +31,7 @@ namespace EulerProject
             }
             result = result % _maxVal;
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 48, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

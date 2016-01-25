@@ -22,12 +22,6 @@ namespace EulerProject
             Reason = reason;
         }
 
-        public EulerSolutionAttribute(bool isEnabled) :
-            this(isEnabled, "")
-        {
-
-        }
-
         public EulerSolutionAttribute() :
             this(true,"")
         {

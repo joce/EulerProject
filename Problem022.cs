@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -14,7 +13,7 @@ namespace EulerProject
         // Problem 22, Solution 2: Value = 871198282 in 83760 ticks
 
         [EulerSolution]
-        public static void Solution1()
+        public static long Solution1()
         {
             _timer.Restart();
 
@@ -22,7 +21,7 @@ namespace EulerProject
             long result = File.ReadAllText(@"Problem022.data").Split(',').OrderBy(s => s).Select(s => s.Trim('"').Select(c => c - 'A' + 1).Sum() * i++).Sum();
             _timer.Stop();
 
-            Trace.WriteLine(string.Format("Problem 22, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -31,7 +30,7 @@ namespace EulerProject
 
         // Surprisingly, the non-LINQ version isn't faster that the LINQ one. That's a first! :-/
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
 
@@ -69,8 +68,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-
-            Trace.WriteLine(string.Format("Problem 22, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

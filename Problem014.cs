@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace EulerProject
 {
@@ -24,7 +23,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             long longest = 0;
@@ -40,8 +39,7 @@ namespace EulerProject
                 }
             }
             _timer.Stop();
-
-            Trace.WriteLine(string.Format("Problem 14, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -71,7 +69,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
 
@@ -91,8 +89,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-
-            Trace.WriteLine(string.Format("Problem 14, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -119,7 +116,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution3()
+        public static ulong Solution3()
         {
             _timer.Restart();
 
@@ -141,7 +138,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 14, Solution 3: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

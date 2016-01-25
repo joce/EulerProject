@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using System.Numerics;
 
 namespace EulerProject
@@ -13,7 +12,7 @@ namespace EulerProject
         // Problem 20, Solution 2: Value = 648 in 90 ticks
 
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             BigInteger val = 1;
@@ -23,7 +22,7 @@ namespace EulerProject
             }
             int result = val.ToString().Select(c => c - '0').Sum();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 20, Solution 1: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -31,7 +30,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
             BigInteger val = 1;
@@ -46,7 +45,7 @@ namespace EulerProject
                 result += c;
             }
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 20, Solution 2: Value = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }

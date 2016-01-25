@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
@@ -46,12 +45,12 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution1()
+        public static long Solution1()
         {
             _timer.Restart();
             long value = FindFactors1(600851475143).Where(IsPrime).Last();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 3, Solution 1: Value = {0} in {1} ticks", value, _timer.ElapsedTicks));
+            return value;
         }
 
 
@@ -72,12 +71,12 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution2()
+        public static long Solution2()
         {
             _timer.Restart();
             long value = FindFactors2(600851475143).Last();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 3, Solution 2: Value = {0} in {1} ticks", value, _timer.ElapsedTicks));
+            return value;
         }
 
 
@@ -113,15 +112,13 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static void Solution3()
+        public static long Solution3()
         {
-            long seed = 600851475143;
             _timer.Restart();
-
-            int value = Primes((int)Math.Ceiling(Math.Sqrt(seed))).Last(i => seed % i == 0);
-
+			const long seed = 600851475143;
+			int value = Primes((int)Math.Ceiling(Math.Sqrt(seed))).Last(i => seed % i == 0);
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 3, Solution 3: Value = {0} in {1} ticks", value, _timer.ElapsedTicks));
+            return value;
         }
 
 
@@ -129,10 +126,10 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static void Solution4()
+        public static int Solution4()
         {
             _timer.Restart();
-            long seed = 600851475143;
+            const long seed = 600851475143;
             int maxPrimeDivider = (int)Math.Ceiling(Math.Sqrt(seed));
 
             byte[] primes = new byte[maxPrimeDivider];
@@ -160,7 +157,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 3, Solution 4: Value = {0} in {1} ticks", value, _timer.ElapsedTicks));
+            return value;
         }
     }
 }

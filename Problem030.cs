@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Diagnostics;
 
 namespace EulerProject
 {
@@ -32,13 +31,13 @@ namespace EulerProject
 
         // Brute force solution
         [EulerSolution]
-        public static void Solution1()
+        public static int Solution1()
         {
             _timer.Restart();
             int maxValue = 6 * (int)Math.Pow(9,5);
             int result = Enumerable.Range(2, maxValue).Where(n => n == Pow5Digits(n)).Sum();
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 30, Solution 1: Total = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
 
 
@@ -58,7 +57,7 @@ namespace EulerProject
 
         // Slightly improved brute force solution
         [EulerSolution]
-        public static void Solution2()
+        public static int Solution2()
         {
             _timer.Restart();
             int maxValue = 6 * (int)Math.Pow(9, 5);
@@ -72,7 +71,7 @@ namespace EulerProject
             }
 
             _timer.Stop();
-            Trace.WriteLine(string.Format("Problem 30, Solution 2: Total = {0} in {1} ticks", result, _timer.ElapsedTicks));
+            return result;
         }
     }
 }
