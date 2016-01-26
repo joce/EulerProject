@@ -3,11 +3,23 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using LinqStatistics;
 
 namespace EulerProject
 {
     class Program
     {
+        static long[] RunSolution(MethodInfo m, int times)
+        {
+            long[] ticks = new long[times];
+            for (int i = 0; i < times; i++)
+            {
+                m.Invoke(null, null);
+                ticks[i] = ProblemBase.ElapsedTicks;
+            }
+            return ticks;
+        }
+
         static void Main(string[] args)
         {
             bool runAllProblems = ConfigurationManager.AppSettings["problems"].ToLower() == "all";
@@ -35,10 +47,13 @@ namespace EulerProject
                     if (attrib.IsEnabled)
                     {
                         var res = m.Invoke(null, null);
-                        Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} in {2} ticks",
+                        var ticks = RunSolution(m, 1000);
+                        var mm = ticks.MinMax();
+                        Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} (low: {2:F3}, high: {3:F3}, avg: {4:F3}, med: {5:F3}, stdev: {6:F3})",
                                                        m.Name.Substring("Solution".Length),
                                                        res,
-                                                       ProblemBase.ElapsedTicks));
+                                                       mm.Min, mm.Max,
+                                                       ticks.Average(), ticks.Median(), ticks.StandardDeviation()));
                     }
                     else
                     {
