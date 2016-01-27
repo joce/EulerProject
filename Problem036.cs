@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem036 : ProblemBase
+    public class Problem036
     {
         // The results I got are of the following order of magnitude:
         //
@@ -27,11 +28,11 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int result = Enumerable.Range(1, 1000000).Where(i => IsPalindrome(i.ToString()) && IsPalindrome(Convert.ToString(i, 2))).Sum();
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -40,11 +41,11 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
             int result = 0;
 
-            _timer.Restart();
+            timer.Restart();
             for (int i = 1; i < 1000000; i++)
             {
                 if (IsPalindrome(i.ToString()) && IsPalindrome(Convert.ToString(i,2)))
@@ -52,7 +53,7 @@ namespace EulerProject
                     result += i;
                 }
             }
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -91,9 +92,9 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution3()
+		public static int Solution3(Stopwatch timer)
         {
-			_timer.Restart();
+			timer.Restart();
 			const int limit = 1000000;
             int result = 0;
             int i = 1;
@@ -119,7 +120,7 @@ namespace EulerProject
                 i++;
                 p = MakePalindromeBase2(i, false);
             }
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

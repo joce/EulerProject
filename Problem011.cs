@@ -1,7 +1,9 @@
-﻿namespace EulerProject
+﻿using System.Diagnostics;
+
+namespace EulerProject
 {
     [EulerProblem]
-    public class Problem011 : ProblemBase
+    public class Problem011
     {
         // The results I got are of the following order of magnitude:
         //
@@ -33,9 +35,9 @@
 
         // Ugly, copy-pasted solution
         [EulerSolution]
-        public static long Solution1()
+		public static long Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             long result = 0;
 
             int width = _grid.GetLength(1);
@@ -168,7 +170,7 @@
                     result = _grid[maxPosX, maxPosY] * _grid[maxPosX-1, maxPosY+1] * _grid[maxPosX-2, maxPosY+2] * _grid[maxPosX-3, maxPosY+3];
                 break;
             }
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -179,9 +181,9 @@
         // Optimized, still ugly solution. I don't think I can optimize any further without unrolling the loops (even then
         // I don't think we'd get interesting gains to be made).
         [EulerSolution]
-        public static long Solution2()
+		public static long Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             long result = 0;
 
             int width = _grid.GetLength(1);
@@ -317,7 +319,7 @@
                     result = _grid[maxPosX, maxPosY] * _grid[maxPosX-1, maxPosY+1] * _grid[maxPosX-2, maxPosY+2] * _grid[maxPosX-3, maxPosY+3];
                     break;
             }
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem001 : ProblemBase
+    public class Problem001
     {
         // The results I got are of the following order of magnitude:
         //
@@ -15,9 +16,9 @@ namespace EulerProject
         // Problem 1, Solution 4: Total = 233168 in 1 ticks
 
         [EulerSolution]
-        public static int Solution1()
+		public static EulerResult<int> Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 			int total = 0;
 			foreach (int i in Enumerable.Range(1, 999))
             {
@@ -26,8 +27,8 @@ namespace EulerProject
                     total += i;
                 }
             }
-            _timer.Stop();
-            return total;
+            timer.Stop();
+            return new EulerResult<int>(total, timer);
         }
 
 
@@ -35,23 +36,23 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution2()
+		public static EulerResult<int> Solution2(Stopwatch timer)
         {
-            _timer.Restart();
-            int total = Enumerable.Range(1, 999).Where(i => i%3 == 0 || i%5 == 0).Sum();
-            _timer.Stop();
-            return total;
-        }
+			timer.Restart();
+			int total = Enumerable.Range(1, 999).Where(i => i%3 == 0 || i%5 == 0).Sum();
+            timer.Stop();
+			return new EulerResult<int>(total, timer);
+		}
 
 
         //////////////////////////////////////////////////////
 
 
         [EulerSolution]
-        public static int Solution3()
+		public static EulerResult<int> Solution3(Stopwatch timer)
         {
-            _timer.Restart();
-            var porcessedVals = new HashSet<int>();
+			timer.Restart();
+			var porcessedVals = new HashSet<int>();
             int total = 0;
             for (int i = 3; i < 1000; i+= 3)
             {
@@ -66,19 +67,19 @@ namespace EulerProject
                     total += i;
                 }
             }
-            _timer.Stop();
-            return total;
-        }
+            timer.Stop();
+			return new EulerResult<int>(total, timer);
+		}
 
 
         //////////////////////////////////////////////////////
 
 
         [EulerSolution]
-        public static int Solution4()
+		public static EulerResult<int> Solution4(Stopwatch timer)
         {
-            _timer.Restart();
-            int total = 0;
+			timer.Restart();
+			int total = 0;
             for (int i = 3; i < 1000; i+= 3)
             {
                 total += i;
@@ -91,18 +92,18 @@ namespace EulerProject
                     total += i;
                 }
             }
-            _timer.Stop();
-            return total;
-        }
+            timer.Stop();
+			return new EulerResult<int>(total, timer);
+		}
 
 
         //////////////////////////////////////////////////////
 
 
         [EulerSolution]
-        public static int Solution5()
+		public static EulerResult<int> Solution5(Stopwatch timer)
         {
-            _timer.Restart();
+			timer.Restart();
 
             const int upperLimit = 1000;
 
@@ -116,8 +117,8 @@ namespace EulerProject
 
             const int total = (sumOfThrees + sumOfFives) - sumOfFifteens;
 
-            _timer.Stop();
-            return total;
-        }
+            timer.Stop();
+			return new EulerResult<int>(total, timer);
+		}
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem003 : ProblemBase
+    public class Problem003
     {
         // The results I got are of the following order of magnitude:
         //
@@ -45,11 +46,11 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static long Solution1()
+		public static long Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             long value = FindFactors1(600851475143).Where(IsPrime).Last();
-            _timer.Stop();
+            timer.Stop();
             return value;
         }
 
@@ -71,11 +72,11 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static long Solution2()
+		public static long Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             long value = FindFactors2(600851475143).Last();
-            _timer.Stop();
+            timer.Stop();
             return value;
         }
 
@@ -112,12 +113,12 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static long Solution3()
+		public static long Solution3(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 			const long seed = 600851475143;
 			int value = Primes((int)Math.Ceiling(Math.Sqrt(seed))).Last(i => seed % i == 0);
-            _timer.Stop();
+            timer.Stop();
             return value;
         }
 
@@ -126,9 +127,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution4()
+		public static int Solution4(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             const long seed = 600851475143;
             int maxPrimeDivider = (int)Math.Ceiling(Math.Sqrt(seed));
 
@@ -156,7 +157,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return value;
         }
     }

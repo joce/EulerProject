@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EulerAttributes.cs" />
+    <Compile Include="EulerResult.cs" />
     <Compile Include="Problem001.cs" />
     <Compile Include="Problem002.cs" />
     <Compile Include="Problem003.cs" />
@@ -95,7 +96,6 @@
     <Compile Include="Problem036.cs" />
     <Compile Include="Problem048.cs" />
     <Compile Include="Problem067.cs" />
-    <Compile Include="ProblemBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Problem024.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem024 : ProblemBase
+    public class Problem024
     {
         // The results I got are of the following order of magnitude:
         //
@@ -23,9 +24,9 @@ namespace EulerProject
 
         // I believe this is fast enough. I also can't think of a way to optimize this further at the moment.
         [EulerSolution]
-        public static long Solution1()
+		public static long Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             var originalList = new List<int>{0,1,2,3,4,5,6,7,8,9};
             var resultList = new List<int>();
 
@@ -43,7 +44,7 @@ namespace EulerProject
             }
             resultList.Add(originalList[0]);
             long result = Int64.Parse(resultList.ConvertAll(i => i.ToString()).Aggregate(string.Concat));
-            _timer.Stop();
+            timer.Stop();
 
             return result;
         }

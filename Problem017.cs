@@ -1,7 +1,9 @@
-﻿namespace EulerProject
+﻿using System.Diagnostics;
+
+namespace EulerProject
 {
     [EulerProblem]
-    public class Problem017 : ProblemBase
+    public class Problem017
     {
         // The results I got are of the following order of magnitude:
         //
@@ -93,9 +95,9 @@
 
         // Rather crappy problem. Not looking for a better solution.
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             int result = 0;
             for (int i = 0; i <= 9; i++)
@@ -104,7 +106,7 @@
             }
 
             result += "one".Length + "thousand".Length;
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

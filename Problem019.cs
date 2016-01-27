@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem019 : ProblemBase
+    public class Problem019
     {
         // The results I got are of the following order of magnitude:
         //
@@ -14,9 +15,9 @@ namespace EulerProject
 
         // Wow... Somehow, NOT taking into account ANY leap year leads to the correct answer. That is weird.
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int result = 0;
             int year = 1900;
             int day = 6;
@@ -43,7 +44,7 @@ namespace EulerProject
                     result += 1;
                 }
             }
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -53,9 +54,9 @@ namespace EulerProject
 
         // Proper solution with the right number of days taken into account.
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int result = 0;
             int year = 1900;
             int day = 6;
@@ -82,7 +83,7 @@ namespace EulerProject
                     result += 1;
                 }
             }
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

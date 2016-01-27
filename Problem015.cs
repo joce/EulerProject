@@ -1,9 +1,10 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics;
+using System.Numerics;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem015 : ProblemBase
+    public class Problem015
     {
         // The results I got are of the following order of magnitude:
         //
@@ -12,9 +13,9 @@ namespace EulerProject
         // Problem 15, Solution 2: Value = 137846528820 in 1 ticks
 
         [EulerSolution]
-        public static long Solution1()
+		public static long Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int size = 20;
             long[][] values = new long[2][];
             for (int i = 0; i < 2; i++)
@@ -40,7 +41,7 @@ namespace EulerProject
             }
 
             long result = values[prev][size];
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -49,9 +50,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static BigInteger Solution2()
+		public static BigInteger Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int size = 20;
             BigInteger result = 1;
             BigInteger divider = 1;
@@ -62,7 +63,7 @@ namespace EulerProject
                 divider *= i;
             }
             result /= divider;
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -71,12 +72,12 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static long Solution3()
+		public static long Solution3(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             // 40! / ((20!)(20!)) simplified.
             long result = 23L * 29L * 31L * 33L * 35L * 37L * 39L * 4;
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

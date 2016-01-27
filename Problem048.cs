@@ -1,7 +1,9 @@
-﻿namespace EulerProject
+﻿using System.Diagnostics;
+
+namespace EulerProject
 {
     [EulerProblem]
-    public class Problem048 : ProblemBase
+    public class Problem048
     {
         // The results I got are of the following order of magnitude:
         //
@@ -21,16 +23,16 @@
         }
 
         [EulerSolution]
-        public static ulong Solution1()
+		public static ulong Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             ulong result = 0;
             for (ulong i = 1; i <= 1000; i++)
             {
                 result = (result + PartialSelfExp(i));
             }
             result = result % _maxVal;
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

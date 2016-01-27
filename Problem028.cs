@@ -1,9 +1,10 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem028 : ProblemBase
+    public class Problem028
     {
         // The results I got are of the following order of magnitude:
         //
@@ -24,11 +25,11 @@ namespace EulerProject
         //
         // We also need to add 1 to the computed total as it's the center of both diagonals.
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int result = Enumerable.Range(1, 500).Select(n => (16 * (n * n)) + (4 * n) + 4).Sum() + 1;
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -44,9 +45,9 @@ namespace EulerProject
         // 16*sum(n^2) + 2n^2 + 2n + 4n + 1
         // 16*sum(n^2) + 2n^2 + 6n + 1
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int result = 0;
             int limit = 500;
             for (int i = 1; i <= limit; i++)
@@ -57,7 +58,7 @@ namespace EulerProject
             result += 2 * (limit * limit);
             result += 6 * limit;
             result += 1;
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

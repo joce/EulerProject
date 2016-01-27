@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem012 : ProblemBase
+    public class Problem012
     {
         // The results I got are of the following order of magnitude:
         //
@@ -25,9 +26,9 @@ namespace EulerProject
 
         // Brute force solution.
         [EulerSolution]
-        public static long Solution1()
+		public static long Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             long result = 0;
 
             long val = 0;
@@ -41,7 +42,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

@@ -1,7 +1,9 @@
-﻿namespace EulerProject
+﻿using System.Diagnostics;
+
+namespace EulerProject
 {
     [EulerProblem]
-    public class Problem009 : ProblemBase
+    public class Problem009
     {
         // The results I got are of the following order of magnitude:
         //
@@ -9,9 +11,9 @@
         // Problem 9, Solution 2: Value = 31875000 in 6 ticks
 
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int result = 0;
 
             for (int a = 1; a < 333; a++)
@@ -26,7 +28,7 @@
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -35,13 +37,13 @@
 
 
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
             // a^2 * b^2 = c^2
             // c = 1000 - (a + b)
             // b = (500000 - 1000a) / (1000 - a)
 
-            _timer.Restart();
+            timer.Restart();
             int a;
             int b = 2;
 
@@ -57,7 +59,7 @@
             }
 
             int result = a * b * (1000 - (a+b));
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

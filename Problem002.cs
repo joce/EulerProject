@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
@@ -19,7 +20,7 @@ namespace EulerProject
     }
 
     [EulerProblem]
-    public class Problem002 : ProblemBase
+    public class Problem002
     {
         // The results I got are of the following order of magnitude:
         //
@@ -69,11 +70,11 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int total = new Fibo().Where(i => i % 2 == 0).TakeWhile(i => i < 4000000).Sum();
-            _timer.Stop();
+            timer.Stop();
             return total;
         }
 
@@ -96,11 +97,11 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int total = GetFibo().Where(i => i % 2 == 0).TakeWhile(i => i < 4000000).Sum();
-            _timer.Stop();
+            timer.Stop();
             return total;
         }
 
@@ -133,16 +134,16 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution3()
+		public static int Solution3(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             var fib = MemoizeY<int, int>(f => n => n > 1 ? f(n - 1) + f(n - 2) : 1);
             int total = Enumerable.Range(0, Int32.MaxValue)
                                   .Select(fib)
                                   .Where(n => n % 2 == 0)
                                   .TakeWhile(n => n < 4000000)
                                   .Sum();
-            _timer.Stop();
+            timer.Stop();
             return total;
         }
 
@@ -151,9 +152,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution4()
+		public static int Solution4(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int prev = 0;
             int cur = 1;
             int total = 0;
@@ -167,7 +168,7 @@ namespace EulerProject
                 cur += prev;
                 prev = temp;
             }
-            _timer.Stop();
+            timer.Stop();
             return total;
         }
 
@@ -176,9 +177,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution5()
+		public static int Solution5(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             // Results in ~12000 ticks.
             //int total = Tuple.Create(0, 1)
@@ -202,7 +203,7 @@ namespace EulerProject
                              .TakeWhile(i => i < 4000000)
                              .Sum();
 
-            _timer.Stop();
+            timer.Stop();
             return total;
         }
     }

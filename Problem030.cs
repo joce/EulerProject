@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem030 : ProblemBase
+    public class Problem030
     {
         // The results I got are of the following order of magnitude:
         //
@@ -31,12 +32,12 @@ namespace EulerProject
 
         // Brute force solution
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int maxValue = 6 * (int)Math.Pow(9,5);
             int result = Enumerable.Range(2, maxValue).Where(n => n == Pow5Digits(n)).Sum();
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -57,9 +58,9 @@ namespace EulerProject
 
         // Slightly improved brute force solution
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int maxValue = 6 * (int)Math.Pow(9, 5);
             int result = 0;
             for (int i = 2; i < maxValue; i++)
@@ -70,7 +71,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

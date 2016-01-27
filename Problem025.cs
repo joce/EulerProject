@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem025 : ProblemBase
+    public class Problem025
     {
         // The results I got are of the following order of magnitude:
         //
@@ -27,12 +28,12 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int cnt = 1;
             int result = GetFibo().TakeWhile(bi=> bi.ToString().Length < 1000).Select(bi => ++cnt).Last();
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -41,9 +42,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             BigInteger prev = 0;
             BigInteger cur = 1;
             int cnt = 1;
@@ -54,7 +55,7 @@ namespace EulerProject
                 cur += prev;
                 prev = temp;
             }
-            _timer.Stop();
+            timer.Stop();
             return cnt;
         }
     }

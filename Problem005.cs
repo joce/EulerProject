@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem005 : ProblemBase
+    public class Problem005
     {
         // The results I got are of the following order of magnitude:
         //
@@ -15,9 +16,9 @@ namespace EulerProject
         // Problem 5, Solution 4: Total = 232792560 in 11 ticks
 
         [EulerSolution(false, reason: "Takes too long")]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int result = 0;
             for (int i = 1; i < Int32.MaxValue; i++)
             {
@@ -36,7 +37,7 @@ namespace EulerProject
                     break;
                 }
             }
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -45,11 +46,11 @@ namespace EulerProject
 
 
         [EulerSolution(false, reason: "Takes too long")]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int result = Enumerable.Range(1, Int32.MaxValue).First(i => Enumerable.Range(1, 20).Select(j => i % j).Sum() == 0);
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -105,9 +106,9 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution3()
+		public static int Solution3(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 			int total = 1;
 			int[] primes = Primes(20);
             int[] maxPrimeFactors = new int[primes.Length];
@@ -127,7 +128,7 @@ namespace EulerProject
             {
                 total *= (int)Math.Pow(primes[i],  maxPrimeFactors[i]);
             }
-            _timer.Stop();
+            timer.Stop();
             return total;
         }
 
@@ -137,9 +138,9 @@ namespace EulerProject
 
         // Devin's O(n^2) solution.
         [EulerSolution]
-        public static int Solution4()
+		public static int Solution4(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 			int total = 1;
 			int[] factors = new int[21];
             for (int i = 2; i <= 20; ++i)
@@ -156,7 +157,7 @@ namespace EulerProject
                 factors[j] = value;
                 total *= value;
             }
-            _timer.Stop();
+            timer.Stop();
             return total;
         }
     }

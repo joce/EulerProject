@@ -1,7 +1,9 @@
-﻿namespace EulerProject
+﻿using System.Diagnostics;
+
+namespace EulerProject
 {
     [EulerProblem]
-    public class Problem008 : ProblemBase
+    public class Problem008
     {
         // The results I got are of the following order of magnitude:
         //
@@ -31,9 +33,9 @@
         "71636269561882670428252483600823257530420752963450";
 
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             int sum = 0;
             int idx = 0;
@@ -63,7 +65,7 @@
                 result *= (value[i] - '0');
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -72,9 +74,9 @@
 
 
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             int sum = 0;
             int idx = 0;
@@ -109,7 +111,7 @@
                 result *= (value[i] - '0');
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem013 : ProblemBase
+    public class Problem013
     {
         // The results I got are of the following order of magnitude:
         //
@@ -117,11 +118,11 @@ namespace EulerProject
         };
 
         [EulerSolution]
-        public static long Solution1()
+		public static long Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             long result = long.Parse(_bigIntValues.Aggregate((sum, i) => sum+i).ToString().Substring(0,10));
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -237,9 +238,9 @@ namespace EulerProject
         };
 
         [EulerSolution(false, reason: "Invalid result")]
-        public static string Solution2()
+		public static string Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             string format = "0000000000000000000000000000000000000000000000000000";
             char[] result = new char[10];
             for (int i = 51; i >= 0; i--)
@@ -259,7 +260,7 @@ namespace EulerProject
                 }
             }
 	        string res = new string(result);
-            _timer.Stop();
+            timer.Stop();
             return res;
         }
     }

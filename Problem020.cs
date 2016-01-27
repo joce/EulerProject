@@ -1,10 +1,11 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using System.Numerics;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem020 : ProblemBase
+    public class Problem020
     {
         // The results I got are of the following order of magnitude:
         //
@@ -12,16 +13,16 @@ namespace EulerProject
         // Problem 20, Solution 2: Value = 648 in 90 ticks
 
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             BigInteger val = 1;
             for (int i = 2; i <= 100; i++)
             {
                 val *= i;
             }
             int result = val.ToString().Select(c => c - '0').Sum();
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -30,9 +31,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             BigInteger val = 1;
             for (int i = 2; i <= 100; i++)
             {
@@ -44,7 +45,7 @@ namespace EulerProject
             {
                 result += c;
             }
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

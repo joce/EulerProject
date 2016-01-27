@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem018 : ProblemBase
+    public class Problem018
     {
         // The results I got are of the following order of magnitude:
         //
@@ -52,13 +53,13 @@ namespace EulerProject
 
         // Brute force solution. It doesn't now but it can keep the list of items in the largest sum path.
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             _max = 0;
             Stack<int> myItems = new Stack<int>();
             SearchTriangle(0,0,myItems);
-            _timer.Stop();
+            timer.Stop();
 
             return _max;
         }
@@ -69,9 +70,9 @@ namespace EulerProject
 
         // Fast solution. Can't keep track of the items that make the largest sum path.
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             int[][] temp = new int[2][];
             temp[0] = new int[triangle[triangle.Length-1].Length];
@@ -105,7 +106,7 @@ namespace EulerProject
                 next ^= 1;
             }
             int result = temp[cur].Max();
-            _timer.Stop();
+            timer.Stop();
 
             return result;
         }

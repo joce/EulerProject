@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem006 : ProblemBase
+    public class Problem006
     {
         // The results I got are of the following order of magnitude:
         //
@@ -14,11 +15,11 @@ namespace EulerProject
         // Problem 6, Solution 4: Value = 25164150 in 0 ticks
 
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             int result = (int)Math.Pow(Enumerable.Range(1,100).Sum(),2) - Enumerable.Range(1,100).Select(i=> i*i).Sum();
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -27,13 +28,13 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             const int n = 100;
             int sum = (((n * n) + n) / 2);
             int result = (sum*sum) - Enumerable.Range(1, 100).Select(i => i*i).Sum();
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -42,9 +43,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution3()
+		public static int Solution3(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             const int n = 100;
             int result = (((n * n) + n) / 2);
             result *= result;
@@ -54,7 +55,7 @@ namespace EulerProject
                 result -= (i*i);
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -63,9 +64,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution4()
+		public static int Solution4(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             const int n = 100;
             int sum = (((n * n) + n) / 2);
             int result = sum * sum;
@@ -76,7 +77,7 @@ namespace EulerProject
 
             result -= sumOfSquares;
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

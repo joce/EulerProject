@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem021 : ProblemBase
+    public class Problem021
     {
         // The results I got are of the following order of magnitude:
         //
@@ -26,9 +27,9 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             HashSet<int> amicable = new HashSet<int>();
 
@@ -45,7 +46,7 @@ namespace EulerProject
             }
 
             int result = amicable.Sum();
-            _timer.Stop();
+            timer.Stop();
 
             return result;
         }
@@ -55,9 +56,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             int result = 0;
             int[] values = new int[10000];
@@ -81,7 +82,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
 
             return result;
         }

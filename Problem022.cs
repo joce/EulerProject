@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem022 : ProblemBase
+    public class Problem022
     {
         // The results I got are of the following order of magnitude:
         //
@@ -13,13 +14,13 @@ namespace EulerProject
         // Problem 22, Solution 2: Value = 871198282 in 83760 ticks
 
         [EulerSolution]
-        public static long Solution1()
+		public static long Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             int i = 1;
             long result = File.ReadAllText(@"Problem022.data").Split(',').OrderBy(s => s).Select(s => s.Trim('"').Select(c => c - 'A' + 1).Sum() * i++).Sum();
-            _timer.Stop();
+            timer.Stop();
 
             return result;
         }
@@ -30,9 +31,9 @@ namespace EulerProject
 
         // Surprisingly, the non-LINQ version isn't faster that the LINQ one. That's a first! :-/
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             SortedList<string, bool> l = new SortedList<string, bool>();
 
@@ -67,7 +68,7 @@ namespace EulerProject
                 i++;
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

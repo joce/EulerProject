@@ -1,10 +1,11 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem067 : ProblemBase
+    public class Problem067
     {
         // The results I got are of the following order of magnitude:
         //
@@ -12,9 +13,9 @@ namespace EulerProject
 
         // Fast solution, same as Problem 18's fast solution. Not sure how it can be sped up at the moment.
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             var triangle = File.ReadAllLines("Problem067.data").Select(line => line.Split(' ').Select(item => int.Parse(item)).ToArray()).ToArray();
 
             int[][] temp = new int[2][];
@@ -50,7 +51,7 @@ namespace EulerProject
             }
 
             int result = temp[cur].Max();
-            _timer.Stop();
+            timer.Stop();
 
             return result;
         }

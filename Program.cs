@@ -11,11 +11,13 @@ namespace EulerProject
     {
         static long[] RunSolution(MethodInfo m, int times)
         {
+	        Stopwatch timer = new Stopwatch();
             long[] ticks = new long[times];
+			object[] arguments = { timer };
             for (int i = 0; i < times; i++)
             {
-                m.Invoke(null, null);
-                ticks[i] = ProblemBase.ElapsedTicks;
+				m.Invoke(null, arguments);
+                ticks[i] = timer.ElapsedTicks;
             }
             return ticks;
         }
@@ -28,8 +30,7 @@ namespace EulerProject
                                                                .Select(s => s.TrimStart('0',' '));
 
             foreach (var t in Assembly.GetExecutingAssembly().GetTypes()
-                                                             .Where(t => t.BaseType == typeof(ProblemBase) &&
-                                                                         t.IsPublic &&
+                                                             .Where(t => t.IsPublic &&
                                                                          t.GetCustomAttributes(typeof(EulerProblemAttribute), false).Any() &&
                                                                          t.Name.StartsWith("Problem") &&
                                                                          (runAllProblems || problems.Contains(t.Name.Substring("Problem".Length).TrimStart('0'))))
@@ -46,13 +47,16 @@ namespace EulerProject
                     var attrib = ((EulerSolutionAttribute)m.GetCustomAttributes(typeof(EulerSolutionAttribute), false).First());
                     if (attrib.IsEnabled)
                     {
-                        var res = m.Invoke(null, null);
-                        var ticks = RunSolution(m, 1000);
-                        var mm = ticks.MinMax();
-                        Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} (low: {2:F3}, high: {3:F3}, avg: {4:F3}, med: {5:F3}, stdev: {6:F3})",
+						// Get the result. Pass in a dummy timer.
+						var res = m.Invoke(null, new object[] { new Stopwatch() });
+
+						// Get the timings.
+						long[] ticks = RunSolution(m, 10);
+                        Range<long> tickExtremes = ticks.MinMax();
+                        Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} (low: {2}, high: {3}, avg: {4:F3}, med: {5:F1}, stdev: {6:F3})",
                                                        m.Name.Substring("Solution".Length),
                                                        res,
-                                                       mm.Min, mm.Max,
+                                                       tickExtremes.Min, tickExtremes.Max,
                                                        ticks.Average(), ticks.Median(), ticks.StandardDeviation()));
                     }
                     else

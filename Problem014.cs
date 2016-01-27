@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem014: ProblemBase
+    public class Problem014
     {
         // The results I got are of the following order of magnitude:
         //
@@ -23,9 +24,9 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             long longest = 0;
             int result = 0;
 
@@ -38,7 +39,7 @@ namespace EulerProject
                     result = i;
                 }
             }
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -69,9 +70,9 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             var cache = new Dictionary<long, short>();
 
@@ -88,7 +89,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -116,9 +117,9 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static ulong Solution3()
+		public static ulong Solution3(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             var cache = new short[_cacheSize];
 
@@ -137,7 +138,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }

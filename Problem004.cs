@@ -1,9 +1,10 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem004 : ProblemBase
+    public class Problem004
     {
         // The results I got are of the following order of magnitude:
         //
@@ -18,9 +19,9 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution1()
+		public static int Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             int value = 0;
             for (int i = 100; i < 1000; i++)
@@ -35,7 +36,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return value;
         }
 
@@ -58,9 +59,9 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static int Solution2()
+		public static int Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             int value = 0;
             for (int i = 100; i < 1000; i++)
@@ -75,7 +76,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return value;
         }
 
@@ -84,9 +85,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static int Solution3()
+		public static int Solution3(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
 
             int value = 0;
             for (int i = 999; i >= 100; i--)
@@ -101,7 +102,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return value;
         }
     }

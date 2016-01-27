@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EulerProject
 {
     [EulerProblem]
-    public class Problem010 : ProblemBase
+    public class Problem010
     {
         // The results I got are of the following order of magnitude:
         //
@@ -43,11 +44,11 @@ namespace EulerProject
         }
 
         [EulerSolution]
-        public static long Solution1()
+		public static long Solution1(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             long result = Primes(2000000).Sum();
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -56,9 +57,9 @@ namespace EulerProject
 
 
         [EulerSolution]
-        public static long Solution2()
+		public static long Solution2(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             const int max = 2000000;
 
             byte[] primes = new byte[max];
@@ -86,7 +87,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
 
@@ -97,9 +98,9 @@ namespace EulerProject
         // Surprisingly, it appears that the check for if (primes[j] == 0) is more costly that the extra loop
         // for (int i = (sqrt % 2 == 0 ? sqrt + 1 : sqrt); i < max; i+=2)
         [EulerSolution]
-        public static long Solution3()
+		public static long Solution3(Stopwatch timer)
         {
-            _timer.Restart();
+            timer.Restart();
             const long max = 2000000;
 
             byte[] primes = new byte[max+1];
@@ -123,7 +124,7 @@ namespace EulerProject
                 }
             }
 
-            _timer.Stop();
+            timer.Stop();
             return result;
         }
     }
