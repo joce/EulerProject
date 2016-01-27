@@ -3,27 +3,61 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using LinqStatistics;
 
 namespace EulerProject
 {
     class Program
     {
-        static long[] RunSolution(MethodInfo m, int times)
-        {
-	        Stopwatch timer = new Stopwatch();
-            long[] ticks = new long[times];
-			object[] arguments = { timer };
-            for (int i = 0; i < times; i++)
-            {
-				m.Invoke(null, arguments);
-                ticks[i] = timer.ElapsedTicks;
-            }
-            return ticks;
-        }
+		static long[] RunSolutionParallel(MethodInfo m, int times)
+		{
+			var localTimer = new Stopwatch();
+			long[] ticks = new long[times];
+			localTimer.Restart();
+			{
+				Parallel.ForEach(Enumerable.Range(0, times),
+					i =>
+					{
+						Stopwatch timer = new Stopwatch();
+						object[] arguments = { timer };
+						m.Invoke(null, arguments);
+						ticks[i] = timer.ElapsedTicks;
+					}
+				);
+			}
+			localTimer.Stop();
+			Trace.WriteLine(string.Format("******* PARALLEL RUN TIME: {0} MS", localTimer.ElapsedMilliseconds));
+			return ticks;
+		}
 
-        static void Main(string[] args)
-        {
+		static long[] RunSolution(MethodInfo m, int times)
+		{
+			var localTimer = new Stopwatch();
+			long[] ticks = new long[times];
+			localTimer.Restart();
+			{
+				Stopwatch timer = new Stopwatch();
+				object[] arguments = { timer };
+				for (int i = 0; i < times; i++)
+				{
+					m.Invoke(null, arguments);
+					ticks[i] = timer.ElapsedTicks;
+				}
+			}
+			localTimer.Stop();
+			Trace.WriteLine(string.Format("******* NON PARALLEL RUN TIME: {0} MS", localTimer.ElapsedMilliseconds));
+			return ticks;
+		}
+
+	    private delegate long[] SolutionRunner(MethodInfo m, int times);
+
+		static void Main(string[] args)
+		{
+			SolutionRunner runner = ConfigurationManager.AppSettings["runner"].ToLower() == "parallel"
+				? (SolutionRunner)RunSolutionParallel
+				: RunSolution;
+
             bool runAllProblems = ConfigurationManager.AppSettings["problems"].ToLower() == "all";
             IEnumerable<string> problems = ConfigurationManager.AppSettings["problems"]
                                                                .Split(',')
@@ -51,7 +85,7 @@ namespace EulerProject
 						var res = m.Invoke(null, new object[] { new Stopwatch() });
 
 						// Get the timings.
-						long[] ticks = RunSolution(m, 10);
+						long[] ticks = runner(m, 100);
                         Range<long> tickExtremes = ticks.MinMax();
                         Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} (low: {2}, high: {3}, avg: {4:F3}, med: {5:F1}, stdev: {6:F3})",
                                                        m.Name.Substring("Solution".Length),
