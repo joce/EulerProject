@@ -237,12 +237,13 @@ namespace EulerProject
             "0053503534226472524250874054075591789781264330331690",
         };
 
-        [EulerSolution(false, reason: "Invalid result")]
+		[EulerSolution]
 		public static string Solution2(Stopwatch timer)
         {
             timer.Restart();
-            string format = "0000000000000000000000000000000000000000000000000000";
-            char[] result = new char[10];
+            char[] value = new char[52];
+ 			char[] result = new char[10];
+			int retain = 0;
             for (int i = 51; i >= 0; i--)
             {
                 int temp = -(_stringValues.Count * '0');
@@ -250,14 +251,14 @@ namespace EulerProject
                 {
                     temp += (s[i]);
                 }
+	            temp += retain;
 
-                string retain = temp.ToString(format.Insert(i+1, "\0"));
-                _stringValues.Add(format);
-
-                if (i <= 9)
-                {
-                    result[i] = format.Last();
-                }
+	            retain = temp/10;
+	            value[i] = (char)('0' + (temp%10));
+	            if (i <= 9)
+	            {
+		            result[i] = value[i];
+	            }
             }
 	        string res = new string(result);
             timer.Stop();
