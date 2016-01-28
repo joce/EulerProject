@@ -16,7 +16,7 @@ namespace EulerProject
         // Problem 1, Solution 4: Total = 233168 in 1 ticks
 
         [EulerSolution]
-		public static EulerResult<int> Solution1(Stopwatch timer)
+		public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
 			int total = 0;
@@ -28,7 +28,7 @@ namespace EulerProject
                 }
             }
             timer.Stop();
-            return new EulerResult<int>(total, timer);
+            return total;
         }
 
 
@@ -36,12 +36,12 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static EulerResult<int> Solution2(Stopwatch timer)
+		public static int Solution2(Stopwatch timer)
         {
 			timer.Restart();
 			int total = Enumerable.Range(1, 999).Where(i => i%3 == 0 || i%5 == 0).Sum();
             timer.Stop();
-			return new EulerResult<int>(total, timer);
+			return total;
 		}
 
 
@@ -49,7 +49,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static EulerResult<int> Solution3(Stopwatch timer)
+		public static int Solution3(Stopwatch timer)
         {
 			timer.Restart();
 			var porcessedVals = new HashSet<int>();
@@ -68,7 +68,7 @@ namespace EulerProject
                 }
             }
             timer.Stop();
-			return new EulerResult<int>(total, timer);
+			return total;
 		}
 
 
@@ -76,7 +76,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static EulerResult<int> Solution4(Stopwatch timer)
+		public static int Solution4(Stopwatch timer)
         {
 			timer.Restart();
 			int total = 0;
@@ -93,7 +93,7 @@ namespace EulerProject
                 }
             }
             timer.Stop();
-			return new EulerResult<int>(total, timer);
+			return total;
 		}
 
 
@@ -101,7 +101,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static EulerResult<int> Solution5(Stopwatch timer)
+		public static int Solution5(Stopwatch timer)
         {
 			timer.Restart();
 
@@ -118,7 +118,7 @@ namespace EulerProject
             const int total = (sumOfThrees + sumOfFives) - sumOfFifteens;
 
             timer.Stop();
-			return new EulerResult<int>(total, timer);
+			return total;
 		}
     }
 }
