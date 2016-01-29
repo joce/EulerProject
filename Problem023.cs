@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -9,7 +10,10 @@ namespace EulerProject
     {
         // The results I got are of the following order of magnitude:
         //
-        // Problem 23, Solution 1: Result = 4179871 in 4153483 ticks
+        // Problem 23, Solution 1: Result = 4179871 in 4246624 ticks
+        // Problem 23, Solution 2: Result = 4179871 in 2711091 ticks
+        // Problem 23, Solution 3: Result = 4179871 in 6501380 ticks
+        // Problem 23, Solution 4: Result = 4179871 in 2580855 ticks
 
         private static IEnumerable<int> GetDividers(int input)
         {
@@ -45,7 +49,6 @@ namespace EulerProject
         public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
-            int total = 0;
 
             int[] abundant = AbundantsTo(28123).ToArray();
             int[] sums = new int[28124];
@@ -55,7 +58,162 @@ namespace EulerProject
                 sums[sum] = 1;
             }
 
-            total = sums.Select((v, i) => v == 0 ? i : 0).Sum();
+            int total = sums.Select((v, i) => v == 0 ? i : 0).Sum();
+
+            timer.Stop();
+            return total;
+        }
+
+
+        //////////////////////////////////////////////////////
+
+
+        [EulerSolution]
+        public static int Solution2(Stopwatch timer)
+        {
+            timer.Restart();
+            int total = 0;
+
+            int[] abundant = AbundantsTo(28123).ToArray();
+            int[] sums = new int[28123];
+
+            foreach (var ab1 in abundant)
+            {
+                foreach (var ab2 in abundant)
+                {
+                    if (ab1 + ab2 >= 28123)
+                    {
+                        break;
+                    }
+                    sums[ab1 + ab2] = 1;
+                }
+            }
+
+            for (int i = 0; i < 28123; i++)
+            {
+                if (sums[i] == 0)
+                {
+                    total += i;
+                }
+            }
+
+            timer.Stop();
+            return total;
+        }
+
+
+        //////////////////////////////////////////////////////
+
+
+        private static int[] AbundantsIndexes(int input)
+        {
+            int[] abundants = new int[input];
+            // I think this could be sped up because while I don't have the formal proof, I believe that
+            // multiples of an abundant numbers are themselves abundant.
+            for (int i = 12; i < input; ++i)
+            {
+                if (abundants[i] == 0 && IsAbundant(i))
+                {
+                    for (int j = i; j < input; j += i)
+                    {
+                        abundants[i] = 1;
+                    }
+                }
+            }
+
+            return abundants;
+        }
+
+        [EulerSolution]
+        public static int Solution3(Stopwatch timer)
+        {
+            timer.Restart();
+            int total = 0;
+
+            int[] abundant = AbundantsIndexes(28123);
+            int[] sums = new int[28123];
+
+            for (int i = 0; i < 28123; i++)
+            {
+                for (int j = 0; j < 28123; j++)
+                {
+                    if (i + j >= 28123)
+                    {
+                        break;
+                    }
+                    if (abundant[i] != 0 && abundant[j] != 0)
+                    {
+                        sums[i + j] = 1;
+                    }
+                }
+            }
+
+            for (int i = 0; i < 28123; i++)
+            {
+                if (sums[i] == 0)
+                {
+                    total += i;
+                }
+            }
+
+            timer.Stop();
+            return total;
+        }
+
+
+        //////////////////////////////////////////////////////
+
+
+        private static bool IsAbundant2(int input)
+        {
+            int total = 0;
+            foreach (var divider in GetDividers(input))
+            {
+                total += divider;
+            }
+            return total > input;
+        }
+
+        private static IEnumerable<int> AbundantsTo2(int input)
+        {
+            for (int i = 12; i <= input; ++i)
+            {
+                if (IsAbundant2(i))
+                {
+                    yield return i;
+                }
+            }
+        }
+
+        [EulerSolution]
+        public static int Solution4(Stopwatch timer)
+        {
+            timer.Restart();
+            int total = 0;
+
+            var abundant = AbundantsTo2(28123).ToArray();
+            int[] sums = new int[28123];
+
+            for (int i = 0; abundant[i] < 28123/2; i++)
+            {
+                for (int j = i; j < abundant.Length; j++)
+                {
+                    int ab = abundant[i] + abundant[j];
+                    if (ab >= 28123)
+                    {
+                        break;
+                    }
+                    sums[ab] = 1;
+                }
+            }
+
+            for (int i = 0; i < 28123; i++)
+            {
+                if (sums[i] == 0)
+                {
+                    total += i;
+                }
+            }
 
             timer.Stop();
             return total;
