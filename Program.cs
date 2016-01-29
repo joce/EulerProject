@@ -75,6 +75,10 @@ namespace EulerProject
                 : RunSolution;
 
             iterations = int.Parse(ConfigurationManager.AppSettings["iterations"] ?? "1");
+            if (iterations < 1)
+            {
+                iterations = 1;
+            }
         }
 
         private static IEnumerable<Type> GetAllEulerProblems()
@@ -109,17 +113,27 @@ namespace EulerProject
                     var attrib = ((EulerSolutionAttribute)m.GetCustomAttributes(typeof(EulerSolutionAttribute), false).First());
                     if (attrib.IsEnabled)
                     {
+                        var defaultTimer = new Stopwatch();
                         // Get the result. Pass in a dummy timer.
-                        var res = m.Invoke(null, new object[] { new Stopwatch() });
+                        var res = m.Invoke(null, new object[] { defaultTimer });
 
-                        // Get the timings.
-                        long[] ticks = runner(m, iterations);
-                        Range<long> tickExtremes = ticks.MinMax();
-                        Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} (low: {2}, high: {3}, avg: {4:F3}, med: {5:F1}, stdev: {6:F3})",
-                                                       m.Name.Substring("Solution".Length),
-                                                       res,
-                                                       tickExtremes.Min, tickExtremes.Max,
-                                                       ticks.Average(), ticks.Median(), ticks.StandardDeviation()));
+                        if (iterations > 1)
+                        {
+                            // Get the timings.
+                            long[] ticks = runner(m, iterations);
+                            Range<long> tickExtremes = ticks.MinMax();
+                            Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} (low: {2}, high: {3}, avg: {4:F3}, med: {5:F1}, stdev: {6:F3})",
+                                                           m.Name.Substring("Solution".Length),
+                                                           res,
+                                                           tickExtremes.Min, tickExtremes.Max,
+                                                           ticks.Average(), ticks.Median(), ticks.StandardDeviation()));
+                        }
+                        else
+                        {
+                            Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} in {2} ticks",
+                                                           m.Name.Substring("Solution".Length),
+                                                           res, defaultTimer.ElapsedTicks));
+                        }
                     }
                     else
                     {
