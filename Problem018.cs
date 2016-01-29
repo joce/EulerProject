@@ -53,7 +53,7 @@ namespace EulerProject
 
         // Brute force solution. It doesn't now but it can keep the list of items in the largest sum path.
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             _max = 0;
@@ -70,7 +70,7 @@ namespace EulerProject
 
         // Fast solution. Can't keep track of the items that make the largest sum path.
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
 

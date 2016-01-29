@@ -70,7 +70,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             int total = new Fibo().Where(i => i % 2 == 0).TakeWhile(i => i < 4000000).Sum();
@@ -97,7 +97,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
             int total = GetFibo().Where(i => i % 2 == 0).TakeWhile(i => i < 4000000).Sum();
@@ -134,7 +134,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static int Solution3(Stopwatch timer)
+        public static int Solution3(Stopwatch timer)
         {
             timer.Restart();
             var fib = MemoizeY<int, int>(f => n => n > 1 ? f(n - 1) + f(n - 2) : 1);
@@ -152,7 +152,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution4(Stopwatch timer)
+        public static int Solution4(Stopwatch timer)
         {
             timer.Restart();
             int prev = 0;
@@ -177,7 +177,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution5(Stopwatch timer)
+        public static int Solution5(Stopwatch timer)
         {
             timer.Restart();
 

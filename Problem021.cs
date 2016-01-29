@@ -27,7 +27,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
 
@@ -56,7 +56,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
 

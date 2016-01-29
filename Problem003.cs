@@ -46,7 +46,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static long Solution1(Stopwatch timer)
+        public static long Solution1(Stopwatch timer)
         {
             timer.Restart();
             long value = FindFactors1(600851475143).Where(IsPrime).Last();
@@ -72,7 +72,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static long Solution2(Stopwatch timer)
+        public static long Solution2(Stopwatch timer)
         {
             timer.Restart();
             long value = FindFactors2(600851475143).Last();
@@ -113,11 +113,11 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static long Solution3(Stopwatch timer)
+        public static long Solution3(Stopwatch timer)
         {
             timer.Restart();
-			const long seed = 600851475143;
-			int value = Primes((int)Math.Ceiling(Math.Sqrt(seed))).Last(i => seed % i == 0);
+            const long seed = 600851475143;
+            int value = Primes((int)Math.Ceiling(Math.Sqrt(seed))).Last(i => seed % i == 0);
             timer.Stop();
             return value;
         }
@@ -127,7 +127,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution4(Stopwatch timer)
+        public static int Solution4(Stopwatch timer)
         {
             timer.Restart();
             const long seed = 600851475143;

@@ -24,7 +24,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             long longest = 0;
@@ -70,7 +70,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
 
@@ -117,7 +117,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static ulong Solution3(Stopwatch timer)
+        public static ulong Solution3(Stopwatch timer)
         {
             timer.Restart();
 

@@ -24,7 +24,7 @@ namespace EulerProject
 
         // I believe this is fast enough. I also can't think of a way to optimize this further at the moment.
         [EulerSolution]
-		public static long Solution1(Stopwatch timer)
+        public static long Solution1(Stopwatch timer)
         {
             timer.Restart();
             var originalList = new List<int>{0,1,2,3,4,5,6,7,8,9};

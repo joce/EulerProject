@@ -35,7 +35,7 @@ namespace EulerProject
 
         // Ugly, copy-pasted solution
         [EulerSolution]
-		public static long Solution1(Stopwatch timer)
+        public static long Solution1(Stopwatch timer)
         {
             timer.Restart();
             long result = 0;
@@ -181,7 +181,7 @@ namespace EulerProject
         // Optimized, still ugly solution. I don't think I can optimize any further without unrolling the loops (even then
         // I don't think we'd get interesting gains to be made).
         [EulerSolution]
-		public static long Solution2(Stopwatch timer)
+        public static long Solution2(Stopwatch timer)
         {
             timer.Restart();
             long result = 0;

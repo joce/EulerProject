@@ -95,7 +95,7 @@ namespace EulerProject
 
         // Rather crappy problem. Not looking for a better solution.
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
 

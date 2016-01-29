@@ -32,7 +32,7 @@ namespace EulerProject
 
         // Brute force solution
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             int maxValue = 6 * (int)Math.Pow(9,5);
@@ -58,7 +58,7 @@ namespace EulerProject
 
         // Slightly improved brute force solution
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
             int maxValue = 6 * (int)Math.Pow(9, 5);

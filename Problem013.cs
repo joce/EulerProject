@@ -118,7 +118,7 @@ namespace EulerProject
         };
 
         [EulerSolution]
-		public static long Solution1(Stopwatch timer)
+        public static long Solution1(Stopwatch timer)
         {
             timer.Restart();
             long result = long.Parse(_bigIntValues.Aggregate((sum, i) => sum+i).ToString().Substring(0,10));
@@ -237,13 +237,13 @@ namespace EulerProject
             "0053503534226472524250874054075591789781264330331690",
         };
 
-		[EulerSolution]
-		public static string Solution2(Stopwatch timer)
+        [EulerSolution]
+        public static string Solution2(Stopwatch timer)
         {
             timer.Restart();
             char[] value = new char[52];
- 			char[] result = new char[10];
-			int retain = 0;
+             char[] result = new char[10];
+            int retain = 0;
             for (int i = 51; i >= 0; i--)
             {
                 int temp = -(_stringValues.Count * '0');
@@ -251,16 +251,16 @@ namespace EulerProject
                 {
                     temp += (s[i]);
                 }
-	            temp += retain;
+                temp += retain;
 
-	            retain = temp/10;
-	            value[i] = (char)('0' + (temp%10));
-	            if (i <= 9)
-	            {
-		            result[i] = value[i];
-	            }
+                retain = temp/10;
+                value[i] = (char)('0' + (temp%10));
+                if (i <= 9)
+                {
+                    result[i] = value[i];
+                }
             }
-	        string res = new string(result);
+            string res = new string(result);
             timer.Stop();
             return res;
         }

@@ -16,7 +16,7 @@ namespace EulerProject
         // Problem 5, Solution 4: Total = 232792560 in 11 ticks
 
         [EulerSolution(false, reason: "Takes too long")]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             int result = 0;
@@ -46,7 +46,7 @@ namespace EulerProject
 
 
         [EulerSolution(false, reason: "Takes too long")]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
             int result = Enumerable.Range(1, Int32.MaxValue).First(i => Enumerable.Range(1, 20).Select(j => i % j).Sum() == 0);
@@ -106,11 +106,11 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static int Solution3(Stopwatch timer)
+        public static int Solution3(Stopwatch timer)
         {
             timer.Restart();
-			int total = 1;
-			int[] primes = Primes(20);
+            int total = 1;
+            int[] primes = Primes(20);
             int[] maxPrimeFactors = new int[primes.Length];
             for (int i = 2; i <= 20; i++)
             {
@@ -138,11 +138,11 @@ namespace EulerProject
 
         // Devin's O(n^2) solution.
         [EulerSolution]
-		public static int Solution4(Stopwatch timer)
+        public static int Solution4(Stopwatch timer)
         {
             timer.Restart();
-			int total = 1;
-			int[] factors = new int[21];
+            int total = 1;
+            int[] factors = new int[21];
             for (int i = 2; i <= 20; ++i)
             {
                 int value = i;

@@ -15,7 +15,7 @@ namespace EulerProject
         // Problem 16, Solution 3: Value = 1366 in 29 ticks
 
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             int result = ((BigInteger)Math.Pow(2, 1000)).ToString().Select(c => c - '0').Sum();
@@ -28,7 +28,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
             int result = 0;
@@ -45,7 +45,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution3(Stopwatch timer)
+        public static int Solution3(Stopwatch timer)
         {
             timer.Restart();
             string val = ((BigInteger)Math.Pow(2, 1000)).ToString();

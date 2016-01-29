@@ -13,7 +13,7 @@ namespace EulerProject
         // Problem 20, Solution 2: Value = 648 in 90 ticks
 
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             BigInteger val = 1;
@@ -31,7 +31,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
             BigInteger val = 1;

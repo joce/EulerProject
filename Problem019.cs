@@ -15,7 +15,7 @@ namespace EulerProject
 
         // Wow... Somehow, NOT taking into account ANY leap year leads to the correct answer. That is weird.
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             int result = 0;
@@ -54,7 +54,7 @@ namespace EulerProject
 
         // Proper solution with the right number of days taken into account.
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
             int result = 0;

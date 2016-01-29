@@ -44,7 +44,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static long Solution1(Stopwatch timer)
+        public static long Solution1(Stopwatch timer)
         {
             timer.Restart();
             long result = Primes(2000000).Sum();
@@ -57,7 +57,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static long Solution2(Stopwatch timer)
+        public static long Solution2(Stopwatch timer)
         {
             timer.Restart();
             const int max = 2000000;
@@ -98,7 +98,7 @@ namespace EulerProject
         // Surprisingly, it appears that the check for if (primes[j] == 0) is more costly that the extra loop
         // for (int i = (sqrt % 2 == 0 ? sqrt + 1 : sqrt); i < max; i+=2)
         [EulerSolution]
-		public static long Solution3(Stopwatch timer)
+        public static long Solution3(Stopwatch timer)
         {
             timer.Restart();
             const long max = 2000000;

@@ -23,7 +23,7 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static ulong Solution1(Stopwatch timer)
+        public static ulong Solution1(Stopwatch timer)
         {
             timer.Restart();
             ulong result = 0;

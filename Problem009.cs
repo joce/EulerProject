@@ -11,7 +11,7 @@ namespace EulerProject
         // Problem 9, Solution 2: Value = 31875000 in 6 ticks
 
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             int result = 0;
@@ -37,7 +37,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             // a^2 * b^2 = c^2
             // c = 1000 - (a + b)

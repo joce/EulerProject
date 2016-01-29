@@ -26,7 +26,7 @@ namespace EulerProject
 
         // Brute force solution.
         [EulerSolution]
-		public static long Solution1(Stopwatch timer)
+        public static long Solution1(Stopwatch timer)
         {
             timer.Restart();
             long result = 0;

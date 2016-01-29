@@ -15,7 +15,7 @@ namespace EulerProject
         // Problem 6, Solution 4: Value = 25164150 in 0 ticks
 
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             int result = (int)Math.Pow(Enumerable.Range(1,100).Sum(),2) - Enumerable.Range(1,100).Select(i=> i*i).Sum();
@@ -28,7 +28,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
             const int n = 100;
@@ -43,7 +43,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution3(Stopwatch timer)
+        public static int Solution3(Stopwatch timer)
         {
             timer.Restart();
             const int n = 100;
@@ -64,7 +64,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution4(Stopwatch timer)
+        public static int Solution4(Stopwatch timer)
         {
             timer.Restart();
             const int n = 100;

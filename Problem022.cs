@@ -14,7 +14,7 @@ namespace EulerProject
         // Problem 22, Solution 2: Value = 871198282 in 83760 ticks
 
         [EulerSolution]
-		public static long Solution1(Stopwatch timer)
+        public static long Solution1(Stopwatch timer)
         {
             timer.Restart();
 
@@ -31,7 +31,7 @@ namespace EulerProject
 
         // Surprisingly, the non-LINQ version isn't faster that the LINQ one. That's a first! :-/
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
 

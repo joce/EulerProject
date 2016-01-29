@@ -28,7 +28,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             int result = Enumerable.Range(1, 1000000).Where(i => IsPalindrome(i.ToString()) && IsPalindrome(Convert.ToString(i, 2))).Sum();
@@ -41,7 +41,7 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             int result = 0;
 
@@ -92,10 +92,10 @@ namespace EulerProject
         }
 
         [EulerSolution]
-		public static int Solution3(Stopwatch timer)
+        public static int Solution3(Stopwatch timer)
         {
-			timer.Restart();
-			const int limit = 1000000;
+            timer.Restart();
+            const int limit = 1000000;
             int result = 0;
             int i = 1;
             int p = MakePalindromeBase2(i, true);

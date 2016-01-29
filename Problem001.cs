@@ -16,11 +16,11 @@ namespace EulerProject
         // Problem 1, Solution 4: Total = 233168 in 1 ticks
 
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
-			int total = 0;
-			foreach (int i in Enumerable.Range(1, 999))
+            int total = 0;
+            foreach (int i in Enumerable.Range(1, 999))
             {
                 if (i % 3 == 0 || i % 5 == 0)
                 {
@@ -36,23 +36,23 @@ namespace EulerProject
 
 
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
-			timer.Restart();
-			int total = Enumerable.Range(1, 999).Where(i => i%3 == 0 || i%5 == 0).Sum();
+            timer.Restart();
+            int total = Enumerable.Range(1, 999).Where(i => i%3 == 0 || i%5 == 0).Sum();
             timer.Stop();
-			return total;
-		}
+            return total;
+        }
 
 
         //////////////////////////////////////////////////////
 
 
         [EulerSolution]
-		public static int Solution3(Stopwatch timer)
+        public static int Solution3(Stopwatch timer)
         {
-			timer.Restart();
-			var porcessedVals = new HashSet<int>();
+            timer.Restart();
+            var porcessedVals = new HashSet<int>();
             int total = 0;
             for (int i = 3; i < 1000; i+= 3)
             {
@@ -68,18 +68,18 @@ namespace EulerProject
                 }
             }
             timer.Stop();
-			return total;
-		}
+            return total;
+        }
 
 
         //////////////////////////////////////////////////////
 
 
         [EulerSolution]
-		public static int Solution4(Stopwatch timer)
+        public static int Solution4(Stopwatch timer)
         {
-			timer.Restart();
-			int total = 0;
+            timer.Restart();
+            int total = 0;
             for (int i = 3; i < 1000; i+= 3)
             {
                 total += i;
@@ -93,17 +93,17 @@ namespace EulerProject
                 }
             }
             timer.Stop();
-			return total;
-		}
+            return total;
+        }
 
 
         //////////////////////////////////////////////////////
 
 
         [EulerSolution]
-		public static int Solution5(Stopwatch timer)
+        public static int Solution5(Stopwatch timer)
         {
-			timer.Restart();
+            timer.Restart();
 
             const int upperLimit = 1000;
 
@@ -118,7 +118,7 @@ namespace EulerProject
             const int total = (sumOfThrees + sumOfFives) - sumOfFifteens;
 
             timer.Stop();
-			return total;
-		}
+            return total;
+        }
     }
 }

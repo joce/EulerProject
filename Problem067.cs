@@ -13,7 +13,7 @@ namespace EulerProject
 
         // Fast solution, same as Problem 18's fast solution. Not sure how it can be sped up at the moment.
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             var triangle = File.ReadAllLines("Problem067.data").Select(line => line.Split(' ').Select(item => int.Parse(item)).ToArray()).ToArray();

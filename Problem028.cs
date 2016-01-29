@@ -25,7 +25,7 @@ namespace EulerProject
         //
         // We also need to add 1 to the computed total as it's the center of both diagonals.
         [EulerSolution]
-		public static int Solution1(Stopwatch timer)
+        public static int Solution1(Stopwatch timer)
         {
             timer.Restart();
             int result = Enumerable.Range(1, 500).Select(n => (16 * (n * n)) + (4 * n) + 4).Sum() + 1;
@@ -45,7 +45,7 @@ namespace EulerProject
         // 16*sum(n^2) + 2n^2 + 2n + 4n + 1
         // 16*sum(n^2) + 2n^2 + 6n + 1
         [EulerSolution]
-		public static int Solution2(Stopwatch timer)
+        public static int Solution2(Stopwatch timer)
         {
             timer.Restart();
             int result = 0;
