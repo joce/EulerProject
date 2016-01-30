@@ -11,10 +11,20 @@ namespace EulerProject
 {
     class Program
     {
+        private static long getTiming(Stopwatch sw)
+        {
+            return showMs ? sw.ElapsedMilliseconds : sw.ElapsedTicks;
+        }
+
+        private static string getTimingUnits()
+        {
+            return showMs ? "ms" : "ticks";
+        }
+
         private static long[] RunSolutionParallel(MethodInfo m, int times)
         {
             var localTimer = new Stopwatch();
-            var ticks = new long[times];
+            var timings = new long[times];
             localTimer.Restart();
             {
                 Parallel.ForEach(Enumerable.Range(0, times),
@@ -23,19 +33,19 @@ namespace EulerProject
                         var timer = new Stopwatch();
                         object[] arguments = { timer };
                         m.Invoke(null, arguments);
-                        ticks[i] = timer.ElapsedTicks;
+                        timings[i] = getTiming(timer);
                     }
                 );
             }
             localTimer.Stop();
-            Trace.WriteLine(string.Format("******* PARALLEL RUN TIME: {0} MS", localTimer.ElapsedMilliseconds));
-            return ticks;
+            Trace.WriteLine(string.Format("******* PARALLEL RUN TIME: {0} {1}", getTiming(localTimer), getTimingUnits().ToUpper()));
+            return timings;
         }
 
         private static long[] RunSolution(MethodInfo m, int times)
         {
             var localTimer = new Stopwatch();
-            var ticks = new long[times];
+            var timings = new long[times];
             localTimer.Restart();
             {
                 var timer = new Stopwatch();
@@ -43,12 +53,12 @@ namespace EulerProject
                 for (int i = 0; i < times; i++)
                 {
                     m.Invoke(null, arguments);
-                    ticks[i] = timer.ElapsedTicks;
+                    timings[i] = getTiming(timer);
                 }
             }
             localTimer.Stop();
-            Trace.WriteLine(string.Format("******* NON PARALLEL RUN TIME: {0} MS", localTimer.ElapsedMilliseconds));
-            return ticks;
+            Trace.WriteLine(string.Format("******* NON PARALLEL RUN TIME: {0} {1}", getTiming(localTimer), getTimingUnits().ToUpper()));
+            return timings;
         }
 
         private delegate long[] SolutionRunner(MethodInfo m, int times);
@@ -57,6 +67,7 @@ namespace EulerProject
         private static bool runAllProblems;
         private static string[] problems;
         private static int iterations;
+        private static bool showMs;
 
         private static void ReadSettings()
         {
@@ -79,6 +90,8 @@ namespace EulerProject
             {
                 iterations = 1;
             }
+
+            showMs = (ConfigurationManager.AppSettings["timingUnits"] ?? "ms".ToLower()) == "ms";
         }
 
         private static IEnumerable<Type> GetAllEulerProblems()
@@ -120,19 +133,19 @@ namespace EulerProject
                         if (iterations > 1)
                         {
                             // Get the timings.
-                            long[] ticks = runner(m, iterations);
-                            Range<long> tickExtremes = ticks.MinMax();
-                            Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} (low: {2}, high: {3}, avg: {4:F3}, med: {5:F1}, stdev: {6:F3})",
+                            long[] timings = runner(m, iterations);
+                            Range<long> timingExtremes = timings.MinMax();
+                            Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} [low: {2}, high: {3}, avg: {4:F3}, med: {5:F1}, stdev: {6:F3}] (timing in {7})",
                                                            m.Name.Substring("Solution".Length),
                                                            res,
-                                                           tickExtremes.Min, tickExtremes.Max,
-                                                           ticks.Average(), ticks.Median(), ticks.StandardDeviation()));
+                                                           timingExtremes.Min, timingExtremes.Max,
+                                                           timings.Average(), timings.Median(), timings.StandardDeviation(), getTimingUnits()));
                         }
                         else
                         {
-                            Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} in {2} ticks",
+                            Trace.WriteLine(string.Format("\tSolution {0}: Result = {1} in {2} {3}",
                                                            m.Name.Substring("Solution".Length),
-                                                           res, defaultTimer.ElapsedTicks));
+                                                           res, getTiming(defaultTimer), getTimingUnits()));
                         }
                     }
                     else
