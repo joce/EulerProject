@@ -96,6 +96,7 @@
     <Compile Include="Problem028.cs" />
     <Compile Include="Problem029.cs" />
     <Compile Include="Problem030.cs" />
+    <Compile Include="Problem042.cs" />
     <Compile Include="Problem034.cs" />
     <Compile Include="Problem035.cs" />
     <Compile Include="Problem036.cs" />
@@ -114,6 +115,7 @@
     </None>
     <Compile Include="Problem007.cs" />
     <None Include="Extras\Problem022.data" />
+    <None Include="Extras\Problem042.data" />
     <None Include="Extras\Problem067.data" />
     <None Include="packages.config" />
   </ItemGroup>
