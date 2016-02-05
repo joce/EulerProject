@@ -91,6 +91,10 @@ namespace EulerProject
             return res;
         }
 
+
+        //////////////////////////////////////////////////////
+
+
         [EulerSolution]
         public static int Solution3(Stopwatch timer)
         {

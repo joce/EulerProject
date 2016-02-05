@@ -44,6 +44,10 @@ namespace EulerProject
             return val;
         }
 
+
+        //////////////////////////////////////////////////////
+
+
         [EulerSolution]
         public static long Solution2(Stopwatch timer)
         {
@@ -76,6 +80,9 @@ namespace EulerProject
             timer.Stop();
             return val;
         }
+
+
+        //////////////////////////////////////////////////////
 
 
         [EulerSolution]
