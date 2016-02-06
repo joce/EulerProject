@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="51-100\Problem097.cs" />
     <Compile Include="EulerAttributes.cs" />
     <Compile Include="1-50\Problem001.cs" />
     <Compile Include="1-50\Problem002.cs" />
