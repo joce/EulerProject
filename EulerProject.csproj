@@ -120,6 +120,7 @@
     <Compile Include="Problem056.cs" />
     <Compile Include="Problem063.cs" />
     <Compile Include="Problem067.cs" />
+    <Compile Include="Problem099.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Problem024.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +133,7 @@
     <None Include="Extras\Problem022.data" />
     <None Include="Extras\Problem042.data" />
     <None Include="Extras\Problem067.data" />
+    <None Include="Extras\Problem099.data" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
