@@ -70,6 +70,7 @@
     <Compile Include="051-100\Problem055.cs" />
     <Compile Include="051-100\Problem092.cs" />
     <Compile Include="051-100\Problem097.cs" />
+    <Compile Include="201-250\Problem206.cs" />
     <Compile Include="EulerAttributes.cs" />
     <Compile Include="001-050\Problem001.cs" />
     <Compile Include="001-050\Problem002.cs" />
