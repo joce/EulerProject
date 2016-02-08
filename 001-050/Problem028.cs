@@ -42,7 +42,7 @@ namespace EulerProject
         // sum(16n^2) + sum(4n) + sum(4) + 1 =>
         // 16*sum(n^2) + 4*sum(n) + 4n +1 =>
         // 16*sum(n^2) + 4(n(n+1)/2) + 4n + 1 =>
-        // 16*sum(n^2) + 2n^2 + 2n + 4n + 1
+        // 16*sum(n^2) + 2n^2 + 2n + 4n + 1 =>
         // 16*sum(n^2) + 2n^2 + 6n + 1
         [EulerSolution]
         public static int Solution2(Stopwatch timer)
