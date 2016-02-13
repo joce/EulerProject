@@ -75,6 +75,7 @@
     <Compile Include="051-100\Problem069.cs" />
     <Compile Include="051-100\Problem076.cs" />
     <Compile Include="051-100\Problem079.cs" />
+    <Compile Include="051-100\Problem081.cs" />
     <Compile Include="051-100\Problem089.cs" />
     <Compile Include="051-100\Problem092.cs" />
     <Compile Include="051-100\Problem097.cs" />
@@ -148,6 +149,7 @@
     <None Include="Extras\Problem059.data" />
     <None Include="Extras\Problem067.data" />
     <None Include="Extras\Problem079.data" />
+    <None Include="Extras\Problem081.data" />
     <None Include="Extras\Problem089.data" />
     <None Include="Extras\Problem099.data" />
     <None Include="packages.config" />
