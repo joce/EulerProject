@@ -50,6 +50,7 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
     <Prefer32Bit>false</Prefer32Bit>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LinqStatistics, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -68,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="051-100\Problem053.cs" />
+    <Compile Include="051-100\Problem054.cs" />
     <Compile Include="051-100\Problem055.cs" />
     <Compile Include="051-100\Problem057.cs" />
     <Compile Include="051-100\Problem058.cs" />
@@ -146,6 +148,7 @@
     <Compile Include="001-050\Problem007.cs" />
     <None Include="Extras\Problem022.data" />
     <None Include="Extras\Problem042.data" />
+    <None Include="Extras\Problem054.data" />
     <None Include="Extras\Problem059.data" />
     <None Include="Extras\Problem067.data" />
     <None Include="Extras\Problem079.data" />
