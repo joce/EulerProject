@@ -77,6 +77,7 @@
     <Compile Include="051-100\Problem062.cs" />
     <Compile Include="051-100\Problem065.cs" />
     <Compile Include="051-100\Problem069.cs" />
+    <Compile Include="051-100\Problem071.cs" />
     <Compile Include="051-100\Problem074.cs" />
     <Compile Include="051-100\Problem076.cs" />
     <Compile Include="051-100\Problem079.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="051-100\Problem089.cs" />
     <Compile Include="051-100\Problem092.cs" />
     <Compile Include="051-100\Problem097.cs" />
+    <Compile Include="101-150\Problem102.cs" />
     <Compile Include="101-150\Problem112.cs" />
     <Compile Include="101-150\Problem145.cs" />
     <Compile Include="201-250\Problem206.cs" />
@@ -162,6 +164,7 @@
     <None Include="Extras\Problem081.data" />
     <None Include="Extras\Problem089.data" />
     <None Include="Extras\Problem099.data" />
+    <None Include="Extras\Problem102.data" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
